@@ -14,13 +14,10 @@ class EmptyStateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return ListView(
+      padding: const EdgeInsets.only(left: 80, right: 80, top: 160),
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 72),
-          child: Image.asset(asset),
-        ),
+        Image.asset(asset, fit: BoxFit.cover),
         SizedBox(height: spacing),
         if (text != null) Text(text!),
       ],

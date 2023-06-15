@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:lecturer/presentation/navigation/autoroute.gr.dart';
 
@@ -11,18 +13,8 @@ class FABWidget extends StatelessWidget {
     return FloatingActionButton.extended(
       label: const Text("Scan"),
       icon: const Icon(LineAwesomeIcons.qrcode),
-      onPressed: () async {
-        // Check camera permission before opening scan page
-        // var status = await Permission.camera.status;
-        // if (status.isDenied) {
-        //   await Permission.camera.request();
-        // }
-
-        // if (status.isGranted) {
-        //   context.router.push(const ScanRoute());
-        // }
-        context.router.push(const ScanRoute());
-      },
+      onPressed: () => context.router
+          .push(ScanRoute(attendanceBloc: context.read<AttendanceBloc>())),
     );
   }
 }

@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
+import 'package:lecturer/presentation/widgets/snackbar.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:lecturer/application/attendance/scan/scan_bloc.dart';
 import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
@@ -22,15 +24,44 @@ class ScanConfirmationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ScanBloc, ScanState>(
+    return BlocConsumer<ScanBloc, ScanState>(
       buildWhen: (previous, current) =>
           current.selfie?.path != previous.selfie?.path &&
           current.eventOption.isSome(),
+      listenWhen: (previous, current) => current.failureOrScanOption.isSome(),
+      listener: (context, state) {
+        state.failureOrScanOption.fold(
+          () {},
+          (either) => either.fold(
+            (f) {
+              // close confirmation modal
+              context.router.pop();
+              ScaffoldMessenger.of(context).showSnackBar(snackBarWidget(
+                context: context,
+                text: f.message!,
+                type: SnackBarType.error,
+              ));
+            },
+            (scanObj) {
+              // close the scan page
+              context.router.popUntilRoot();
+              ScaffoldMessenger.of(context).showSnackBar(snackBarWidget(
+                context: context,
+                text: "Scan successfull!",
+              ));
+              // refresh attendance page
+              context
+                  .read<AttendanceBloc>()
+                  .add(const AttendanceEvent.getAllScans());
+            },
+          ),
+        );
+      },
       builder: (context, state) {
         final event = state.eventOption.getOrElse(() => EventObject());
 
         return Container(
-          height: 620,
+          height: state.qr!["type"] == "OUT" ? 300 : 620,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
@@ -81,32 +112,33 @@ class ScanConfirmationWidget extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 16),
+              if (state.qr!["type"] == "IN") const SizedBox(height: 16),
               // Image holder
-              Stack(
-                children: [
-                  Center(
-                    child: AvatarWidget(
-                      url: state.selfie != null
-                          ? state.selfie!.path
-                          : "assets/avatar_generic.jpg",
-                      size: 160,
-                      onTap: () async => takeSelfie(context),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 2,
-                    right: ResponsiveWrapper.of(context).scaledWidth / 2 - 40,
-                    child: IconButton(
-                      onPressed: () async => takeSelfie(context),
-                      icon: Icon(
-                        LineAwesomeIcons.camera,
-                        color: Theme.of(context).colorScheme.primary,
+              if (state.qr!["type"] == "IN")
+                Stack(
+                  children: [
+                    Center(
+                      child: AvatarWidget(
+                        url: state.selfie != null
+                            ? state.selfie!.path
+                            : "assets/avatar_generic.jpg",
+                        size: 160,
+                        onTap: () async => takeSelfie(context),
                       ),
                     ),
-                  ),
-                ],
-              ),
+                    Positioned(
+                      bottom: 2,
+                      right: ResponsiveWrapper.of(context).scaledWidth / 2 - 40,
+                      child: IconButton(
+                        onPressed: () async => takeSelfie(context),
+                        icon: Icon(
+                          LineAwesomeIcons.camera,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -118,10 +150,10 @@ class ScanConfirmationWidget extends StatelessWidget {
                     onTap: state.isLoading
                         ? null
                         : () {
-                            context.router.pop();
                             context
                                 .read<ScanBloc>()
                                 .add(const ScanEvent.scanCancelled());
+                            context.router.pop();
                           },
                   ),
                   const SizedBox(width: 16),
@@ -131,8 +163,6 @@ class ScanConfirmationWidget extends StatelessWidget {
                     widthFactor: 0.35,
                     onTap: state.selfie != null
                         ? () {
-                            // Close bottom sheet
-                            context.router.pop();
                             context
                                 .read<ScanBloc>()
                                 .add(const ScanEvent.scanConfirmed());

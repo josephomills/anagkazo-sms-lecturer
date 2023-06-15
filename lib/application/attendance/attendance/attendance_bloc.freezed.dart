@@ -18,39 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AttendanceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EventType eventType) tabSelected,
-    required TResult Function() getAllQueries,
+    required TResult Function() getAllScans,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EventType eventType)? tabSelected,
-    TResult? Function()? getAllQueries,
+    TResult? Function()? getAllScans,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EventType eventType)? tabSelected,
-    TResult Function()? getAllQueries,
+    TResult Function()? getAllScans,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TabSelected value) tabSelected,
-    required TResult Function(_GetAllQueries value) getAllQueries,
+    required TResult Function(_GetAllScans value) getAllScans,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TabSelected value)? tabSelected,
-    TResult? Function(_GetAllQueries value)? getAllQueries,
+    TResult? Function(_GetAllScans value)? getAllScans,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_GetAllQueries value)? getAllQueries,
+    TResult Function(_GetAllScans value)? getAllScans,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,170 +69,35 @@ class _$AttendanceEventCopyWithImpl<$Res, $Val extends AttendanceEvent>
 }
 
 /// @nodoc
-abstract class _$$_TabSelectedCopyWith<$Res> {
-  factory _$$_TabSelectedCopyWith(
-          _$_TabSelected value, $Res Function(_$_TabSelected) then) =
-      __$$_TabSelectedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({EventType eventType});
+abstract class _$$_GetAllScansCopyWith<$Res> {
+  factory _$$_GetAllScansCopyWith(
+          _$_GetAllScans value, $Res Function(_$_GetAllScans) then) =
+      __$$_GetAllScansCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TabSelectedCopyWithImpl<$Res>
-    extends _$AttendanceEventCopyWithImpl<$Res, _$_TabSelected>
-    implements _$$_TabSelectedCopyWith<$Res> {
-  __$$_TabSelectedCopyWithImpl(
-      _$_TabSelected _value, $Res Function(_$_TabSelected) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? eventType = null,
-  }) {
-    return _then(_$_TabSelected(
-      eventType: null == eventType
-          ? _value.eventType
-          : eventType // ignore: cast_nullable_to_non_nullable
-              as EventType,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TabSelected implements _TabSelected {
-  const _$_TabSelected({required this.eventType});
-
-  @override
-  final EventType eventType;
-
-  @override
-  String toString() {
-    return 'AttendanceEvent.tabSelected(eventType: $eventType)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TabSelected &&
-            (identical(other.eventType, eventType) ||
-                other.eventType == eventType));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, eventType);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TabSelectedCopyWith<_$_TabSelected> get copyWith =>
-      __$$_TabSelectedCopyWithImpl<_$_TabSelected>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(EventType eventType) tabSelected,
-    required TResult Function() getAllQueries,
-  }) {
-    return tabSelected(eventType);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EventType eventType)? tabSelected,
-    TResult? Function()? getAllQueries,
-  }) {
-    return tabSelected?.call(eventType);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EventType eventType)? tabSelected,
-    TResult Function()? getAllQueries,
-    required TResult orElse(),
-  }) {
-    if (tabSelected != null) {
-      return tabSelected(eventType);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TabSelected value) tabSelected,
-    required TResult Function(_GetAllQueries value) getAllQueries,
-  }) {
-    return tabSelected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TabSelected value)? tabSelected,
-    TResult? Function(_GetAllQueries value)? getAllQueries,
-  }) {
-    return tabSelected?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_GetAllQueries value)? getAllQueries,
-    required TResult orElse(),
-  }) {
-    if (tabSelected != null) {
-      return tabSelected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TabSelected implements AttendanceEvent {
-  const factory _TabSelected({required final EventType eventType}) =
-      _$_TabSelected;
-
-  EventType get eventType;
-  @JsonKey(ignore: true)
-  _$$_TabSelectedCopyWith<_$_TabSelected> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_GetAllQueriesCopyWith<$Res> {
-  factory _$$_GetAllQueriesCopyWith(
-          _$_GetAllQueries value, $Res Function(_$_GetAllQueries) then) =
-      __$$_GetAllQueriesCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GetAllQueriesCopyWithImpl<$Res>
-    extends _$AttendanceEventCopyWithImpl<$Res, _$_GetAllQueries>
-    implements _$$_GetAllQueriesCopyWith<$Res> {
-  __$$_GetAllQueriesCopyWithImpl(
-      _$_GetAllQueries _value, $Res Function(_$_GetAllQueries) _then)
+class __$$_GetAllScansCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$_GetAllScans>
+    implements _$$_GetAllScansCopyWith<$Res> {
+  __$$_GetAllScansCopyWithImpl(
+      _$_GetAllScans _value, $Res Function(_$_GetAllScans) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetAllQueries implements _GetAllQueries {
-  const _$_GetAllQueries();
+class _$_GetAllScans implements _GetAllScans {
+  const _$_GetAllScans();
 
   @override
   String toString() {
-    return 'AttendanceEvent.getAllQueries()';
+    return 'AttendanceEvent.getAllScans()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetAllQueries);
+        (other.runtimeType == runtimeType && other is _$_GetAllScans);
   }
 
   @override
@@ -247,30 +106,27 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(EventType eventType) tabSelected,
-    required TResult Function() getAllQueries,
+    required TResult Function() getAllScans,
   }) {
-    return getAllQueries();
+    return getAllScans();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(EventType eventType)? tabSelected,
-    TResult? Function()? getAllQueries,
+    TResult? Function()? getAllScans,
   }) {
-    return getAllQueries?.call();
+    return getAllScans?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(EventType eventType)? tabSelected,
-    TResult Function()? getAllQueries,
+    TResult Function()? getAllScans,
     required TResult orElse(),
   }) {
-    if (getAllQueries != null) {
-      return getAllQueries();
+    if (getAllScans != null) {
+      return getAllScans();
     }
     return orElse();
   }
@@ -278,53 +134,40 @@ class _$_GetAllQueries implements _GetAllQueries {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TabSelected value) tabSelected,
-    required TResult Function(_GetAllQueries value) getAllQueries,
+    required TResult Function(_GetAllScans value) getAllScans,
   }) {
-    return getAllQueries(this);
+    return getAllScans(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_TabSelected value)? tabSelected,
-    TResult? Function(_GetAllQueries value)? getAllQueries,
+    TResult? Function(_GetAllScans value)? getAllScans,
   }) {
-    return getAllQueries?.call(this);
+    return getAllScans?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_GetAllQueries value)? getAllQueries,
+    TResult Function(_GetAllScans value)? getAllScans,
     required TResult orElse(),
   }) {
-    if (getAllQueries != null) {
-      return getAllQueries(this);
+    if (getAllScans != null) {
+      return getAllScans(this);
     }
     return orElse();
   }
 }
 
-abstract class _GetAllQueries implements AttendanceEvent {
-  const factory _GetAllQueries() = _$_GetAllQueries;
+abstract class _GetAllScans implements AttendanceEvent {
+  const factory _GetAllScans() = _$_GetAllScans;
 }
 
 /// @nodoc
 mixin _$AttendanceState {
   bool get isLoading => throw _privateConstructorUsedError;
-  Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
-      get failureOrQueryOption => throw _privateConstructorUsedError;
-  Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-      get failureOrQueriesList => throw _privateConstructorUsedError;
-  QueryBuilder<ScanObject> get visionQueryOption =>
-      throw _privateConstructorUsedError;
-  QueryBuilder<ScanObject> get pillarQueryOption =>
-      throw _privateConstructorUsedError;
-  QueryBuilder<ScanObject> get aLiveQueryOption =>
-      throw _privateConstructorUsedError;
-  QueryBuilder<ScanObject> get flExpQueryOption =>
+  Either<AttendanceFailure, List<ScanObject>> get failureOrScans =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -340,14 +183,7 @@ abstract class $AttendanceStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
-      Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
-          failureOrQueryOption,
-      Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-          failureOrQueriesList,
-      QueryBuilder<ScanObject> visionQueryOption,
-      QueryBuilder<ScanObject> pillarQueryOption,
-      QueryBuilder<ScanObject> aLiveQueryOption,
-      QueryBuilder<ScanObject> flExpQueryOption});
+      Either<AttendanceFailure, List<ScanObject>> failureOrScans});
 }
 
 /// @nodoc
@@ -364,43 +200,17 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? failureOrQueryOption = null,
-    Object? failureOrQueriesList = null,
-    Object? visionQueryOption = null,
-    Object? pillarQueryOption = null,
-    Object? aLiveQueryOption = null,
-    Object? flExpQueryOption = null,
+    Object? failureOrScans = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrQueryOption: null == failureOrQueryOption
-          ? _value.failureOrQueryOption
-          : failureOrQueryOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>,
-      failureOrQueriesList: null == failureOrQueriesList
-          ? _value.failureOrQueriesList
-          : failureOrQueriesList // ignore: cast_nullable_to_non_nullable
-              as Option<
-                  Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>,
-      visionQueryOption: null == visionQueryOption
-          ? _value.visionQueryOption
-          : visionQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
-      pillarQueryOption: null == pillarQueryOption
-          ? _value.pillarQueryOption
-          : pillarQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
-      aLiveQueryOption: null == aLiveQueryOption
-          ? _value.aLiveQueryOption
-          : aLiveQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
-      flExpQueryOption: null == flExpQueryOption
-          ? _value.flExpQueryOption
-          : flExpQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
+      failureOrScans: null == failureOrScans
+          ? _value.failureOrScans
+          : failureOrScans // ignore: cast_nullable_to_non_nullable
+              as Either<AttendanceFailure, List<ScanObject>>,
     ) as $Val);
   }
 }
@@ -415,14 +225,7 @@ abstract class _$$_AttendanceStateCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
-      Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
-          failureOrQueryOption,
-      Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-          failureOrQueriesList,
-      QueryBuilder<ScanObject> visionQueryOption,
-      QueryBuilder<ScanObject> pillarQueryOption,
-      QueryBuilder<ScanObject> aLiveQueryOption,
-      QueryBuilder<ScanObject> flExpQueryOption});
+      Either<AttendanceFailure, List<ScanObject>> failureOrScans});
 }
 
 /// @nodoc
@@ -437,43 +240,17 @@ class __$$_AttendanceStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? failureOrQueryOption = null,
-    Object? failureOrQueriesList = null,
-    Object? visionQueryOption = null,
-    Object? pillarQueryOption = null,
-    Object? aLiveQueryOption = null,
-    Object? flExpQueryOption = null,
+    Object? failureOrScans = null,
   }) {
     return _then(_$_AttendanceState(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      failureOrQueryOption: null == failureOrQueryOption
-          ? _value.failureOrQueryOption
-          : failureOrQueryOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>,
-      failureOrQueriesList: null == failureOrQueriesList
-          ? _value.failureOrQueriesList
-          : failureOrQueriesList // ignore: cast_nullable_to_non_nullable
-              as Option<
-                  Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>,
-      visionQueryOption: null == visionQueryOption
-          ? _value.visionQueryOption
-          : visionQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
-      pillarQueryOption: null == pillarQueryOption
-          ? _value.pillarQueryOption
-          : pillarQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
-      aLiveQueryOption: null == aLiveQueryOption
-          ? _value.aLiveQueryOption
-          : aLiveQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
-      flExpQueryOption: null == flExpQueryOption
-          ? _value.flExpQueryOption
-          : flExpQueryOption // ignore: cast_nullable_to_non_nullable
-              as QueryBuilder<ScanObject>,
+      failureOrScans: null == failureOrScans
+          ? _value.failureOrScans
+          : failureOrScans // ignore: cast_nullable_to_non_nullable
+              as Either<AttendanceFailure, List<ScanObject>>,
     ));
   }
 }
@@ -482,34 +259,16 @@ class __$$_AttendanceStateCopyWithImpl<$Res>
 
 class _$_AttendanceState implements _AttendanceState {
   const _$_AttendanceState(
-      {required this.isLoading,
-      required this.failureOrQueryOption,
-      required this.failureOrQueriesList,
-      required this.visionQueryOption,
-      required this.pillarQueryOption,
-      required this.aLiveQueryOption,
-      required this.flExpQueryOption});
+      {required this.isLoading, required this.failureOrScans});
 
   @override
   final bool isLoading;
   @override
-  final Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
-      failureOrQueryOption;
-  @override
-  final Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-      failureOrQueriesList;
-  @override
-  final QueryBuilder<ScanObject> visionQueryOption;
-  @override
-  final QueryBuilder<ScanObject> pillarQueryOption;
-  @override
-  final QueryBuilder<ScanObject> aLiveQueryOption;
-  @override
-  final QueryBuilder<ScanObject> flExpQueryOption;
+  final Either<AttendanceFailure, List<ScanObject>> failureOrScans;
 
   @override
   String toString() {
-    return 'AttendanceState(isLoading: $isLoading, failureOrQueryOption: $failureOrQueryOption, failureOrQueriesList: $failureOrQueriesList, visionQueryOption: $visionQueryOption, pillarQueryOption: $pillarQueryOption, aLiveQueryOption: $aLiveQueryOption, flExpQueryOption: $flExpQueryOption)';
+    return 'AttendanceState(isLoading: $isLoading, failureOrScans: $failureOrScans)';
   }
 
   @override
@@ -519,30 +278,12 @@ class _$_AttendanceState implements _AttendanceState {
             other is _$_AttendanceState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.failureOrQueryOption, failureOrQueryOption) ||
-                other.failureOrQueryOption == failureOrQueryOption) &&
-            (identical(other.failureOrQueriesList, failureOrQueriesList) ||
-                other.failureOrQueriesList == failureOrQueriesList) &&
-            (identical(other.visionQueryOption, visionQueryOption) ||
-                other.visionQueryOption == visionQueryOption) &&
-            (identical(other.pillarQueryOption, pillarQueryOption) ||
-                other.pillarQueryOption == pillarQueryOption) &&
-            (identical(other.aLiveQueryOption, aLiveQueryOption) ||
-                other.aLiveQueryOption == aLiveQueryOption) &&
-            (identical(other.flExpQueryOption, flExpQueryOption) ||
-                other.flExpQueryOption == flExpQueryOption));
+            (identical(other.failureOrScans, failureOrScans) ||
+                other.failureOrScans == failureOrScans));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      failureOrQueryOption,
-      failureOrQueriesList,
-      visionQueryOption,
-      pillarQueryOption,
-      aLiveQueryOption,
-      flExpQueryOption);
+  int get hashCode => Object.hash(runtimeType, isLoading, failureOrScans);
 
   @JsonKey(ignore: true)
   @override
@@ -554,33 +295,13 @@ class _$_AttendanceState implements _AttendanceState {
 abstract class _AttendanceState implements AttendanceState {
   const factory _AttendanceState(
       {required final bool isLoading,
-      required final Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
-          failureOrQueryOption,
-      required final Option<
-              Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-          failureOrQueriesList,
-      required final QueryBuilder<ScanObject> visionQueryOption,
-      required final QueryBuilder<ScanObject> pillarQueryOption,
-      required final QueryBuilder<ScanObject> aLiveQueryOption,
-      required final QueryBuilder<ScanObject>
-          flExpQueryOption}) = _$_AttendanceState;
+      required final Either<AttendanceFailure, List<ScanObject>>
+          failureOrScans}) = _$_AttendanceState;
 
   @override
   bool get isLoading;
   @override
-  Option<Either<AttendanceFailure, QueryBuilder<ScanObject>>>
-      get failureOrQueryOption;
-  @override
-  Option<Either<AttendanceFailure, List<QueryBuilder<ScanObject>>>>
-      get failureOrQueriesList;
-  @override
-  QueryBuilder<ScanObject> get visionQueryOption;
-  @override
-  QueryBuilder<ScanObject> get pillarQueryOption;
-  @override
-  QueryBuilder<ScanObject> get aLiveQueryOption;
-  @override
-  QueryBuilder<ScanObject> get flExpQueryOption;
+  Either<AttendanceFailure, List<ScanObject>> get failureOrScans;
   @override
   @JsonKey(ignore: true)
   _$$_AttendanceStateCopyWith<_$_AttendanceState> get copyWith =>

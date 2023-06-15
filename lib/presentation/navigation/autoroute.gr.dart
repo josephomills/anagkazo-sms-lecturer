@@ -10,7 +10,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i11;
 import 'package:flutter/material.dart' as _i12;
-import 'package:flutterfire_ui/auth.dart' as _i13;
+import 'package:flutterfire_ui/auth.dart' as _i14;
+import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart'
+    as _i13;
 import 'package:lecturer/presentation/pages/attendance/attendance.page.dart'
     as _i1;
 import 'package:lecturer/presentation/pages/attendance/scan.page.dart' as _i2;
@@ -33,13 +35,18 @@ abstract class $AppRouter extends _i11.RootStackRouter {
     AttendanceRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.AttendancePage(),
+        child: _i11.WrappedRoute(child: const _i1.AttendancePage()),
       );
     },
     ScanRoute.name: (routeData) {
+      final args = routeData.argsAs<ScanRouteArgs>();
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i11.WrappedRoute(child: const _i2.ScanPage()),
+        child: _i11.WrappedRoute(
+            child: _i2.ScanPage(
+          key: args.key,
+          attendanceBloc: args.attendanceBloc,
+        )),
       );
     },
     ScanConfirmationRoute.name: (routeData) {
@@ -123,16 +130,40 @@ class AttendanceRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.ScanPage]
-class ScanRoute extends _i11.PageRouteInfo<void> {
-  const ScanRoute({List<_i11.PageRouteInfo>? children})
-      : super(
+class ScanRoute extends _i11.PageRouteInfo<ScanRouteArgs> {
+  ScanRoute({
+    _i12.Key? key,
+    required _i13.AttendanceBloc attendanceBloc,
+    List<_i11.PageRouteInfo>? children,
+  }) : super(
           ScanRoute.name,
+          args: ScanRouteArgs(
+            key: key,
+            attendanceBloc: attendanceBloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ScanRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i11.PageInfo<ScanRouteArgs> page =
+      _i11.PageInfo<ScanRouteArgs>(name);
+}
+
+class ScanRouteArgs {
+  const ScanRouteArgs({
+    this.key,
+    required this.attendanceBloc,
+  });
+
+  final _i12.Key? key;
+
+  final _i13.AttendanceBloc attendanceBloc;
+
+  @override
+  String toString() {
+    return 'ScanRouteArgs{key: $key, attendanceBloc: $attendanceBloc}';
+  }
 }
 
 /// generated route for
@@ -222,7 +253,7 @@ class LoginRouteArgs {
 class OtpRoute extends _i11.PageRouteInfo<OtpRouteArgs> {
   OtpRoute({
     _i12.Key? key,
-    required _i13.AuthAction action,
+    required _i14.AuthAction action,
     required String phone,
     required Object flowKey,
     List<_i11.PageRouteInfo>? children,
@@ -253,7 +284,7 @@ class OtpRouteArgs {
 
   final _i12.Key? key;
 
-  final _i13.AuthAction action;
+  final _i14.AuthAction action;
 
   final String phone;
 

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:moment_dart/moment_dart.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:lecturer/domain/attendance/scan/scan.facade.dart';
 import 'package:lecturer/domain/attendance/scan/scan.failure.dart';
@@ -31,9 +32,9 @@ class ScanRepo implements ScanFacade {
     final user = getIt<ParseUser>();
 
     // Check for a previous scan
-    final scanObjOption =
-        (await checkForScan(event: event, user: user, isScanIn: true))
-            .getOrElse(() => none());
+    final scanObjOption = (await checkForScan(
+            event: event, user: user, isScanIn: true, dateTime: dateTime))
+        .getOrElse(() => none());
     final bool alreadyScanned = scanObjOption.isSome();
 
     if (alreadyScanned) {
@@ -41,7 +42,7 @@ class ScanRepo implements ScanFacade {
       final validObj = scanObj.objectId != null;
       return Left(ScanFailure.duplicateScanError(
         message: validObj
-            ? "You have already scanned in."
+            ? "You have already scanned in today."
             : "Invalid scan object found",
         scanObject: validObj ? scanObj : null,
       ));
@@ -65,7 +66,7 @@ class ScanRepo implements ScanFacade {
           return Right(scan);
         }
 
-        return const Left(ScanFailure.serverError());
+        return Left(ScanFailure.serverError(message: resp.error!.message));
       } else {
         return Left(
             ScanFailure.serverError(message: uploadResp.error!.message));
@@ -80,7 +81,8 @@ class ScanRepo implements ScanFacade {
 
     // Check for a previous scan
     final scanObjOption =
-        (await checkForScan(event: event, user: user)).getOrElse(() => none());
+        (await checkForScan(event: event, user: user, dateTime: dateTime))
+            .getOrElse(() => none());
     final bool alreadyScanned = scanObjOption.isSome();
     final scanObj = scanObjOption.getOrElse(() => ScanObject());
 
@@ -130,12 +132,14 @@ class ScanRepo implements ScanFacade {
   Future<Either<ScanFailure, Option<ScanObject>>> checkForScan({
     required EventObject event,
     required ParseUser user,
+    required DateTime dateTime,
     bool? isScanIn,
     bool? isScanOut,
   }) async {
     final scanQuery = QueryBuilder<ScanObject>(ScanObject())
       ..whereEqualTo(ScanObject.kEvent, event.toPointer())
-      ..whereEqualTo(ScanObject.kUser, user.toPointer());
+      ..whereEqualTo(ScanObject.kUser, user.toPointer())
+      ..orderByDescending(ScanObject.kScannedInAt);
 
     if (isScanOut != null && isScanOut) {
       scanQuery.whereValueExists(ScanObject.kScannedOutAt, true);
@@ -152,7 +156,12 @@ class ScanRepo implements ScanFacade {
       } else {
         // already scanned
         final ScanObject scanObject = resp.results!.first as ScanObject;
-        return Right(some(scanObject));
+        // only returned scans from the same day
+        if (Moment(scanObject.scannedInAt!).isAtSameDayAs(dateTime)) {
+          return Right(some(scanObject));
+        } else {
+          return Right(none());
+        }
       }
     }
 

@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:lecturer/application/app/app_bloc.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
-import 'package:lecturer/infrastructure/core/parse.core.dart';
+import 'package:lecturer/infrastructure/services/parse.service.dart';
 import 'package:lecturer/presentation/theme/app_theme.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

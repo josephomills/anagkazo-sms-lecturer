@@ -19,7 +19,10 @@ class LoaderWidget extends StatelessWidget {
             width: ResponsiveWrapper.of(context).scaledWidth,
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
-              child: Container(),
+              child: SizedBox(
+                height: ResponsiveWrapper.of(context).scaledHeight - 56,
+                width: double.infinity,
+              ),
             ),
           ),
         ),

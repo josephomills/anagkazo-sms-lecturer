@@ -4,7 +4,6 @@ import 'package:lecturer/application/app/app_bloc.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/presentation/navigation/autoroute.gr.dart';
 import 'package:lecturer/presentation/widgets/bottom_nav.widget.dart';
-import 'package:lecturer/presentation/widgets/fab.widget.dart';
 
 @RoutePage()
 class IndexPage extends StatelessWidget {
@@ -23,11 +22,6 @@ class IndexPage extends StatelessWidget {
           routes: [const AttendanceRoute(), ProfileRoute()],
           bottomNavigationBuilder: (context, tabsRouter) {
             return const BottomNavWidget();
-          },
-          floatingActionButtonBuilder: (context, tabsRouter) {
-            return tabsRouter.activeIndex == NavIndex.attendance
-                ? const FABWidget()
-                : null;
           },
         );
       },

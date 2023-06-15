@@ -24,6 +24,7 @@ abstract class ScanFacade {
   Future<Either<ScanFailure, Option<ScanObject>>> checkForScan({
     required EventObject event,
     required ParseUser user,
+    required DateTime dateTime,
     bool? isScanIn,
     bool? isScanOut,
   });

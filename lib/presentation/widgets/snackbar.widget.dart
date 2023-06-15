@@ -6,6 +6,7 @@ SnackBar snackBarWidget({
   required BuildContext context,
   SnackBarType type = SnackBarType.regular,
   SnackBarAction? action,
+  bool showCloseIcon = true,
 }) {
   return SnackBar(
     content: Text(
@@ -13,7 +14,7 @@ SnackBar snackBarWidget({
       style: Theme.of(context).textTheme.labelLarge!.copyWith(
             color: getTextColor(type: type, context: context),
           ),
-      textAlign: TextAlign.center,
+      textAlign: TextAlign.start,
       overflow: TextOverflow.ellipsis,
       softWrap: true,
       maxLines: 2,
@@ -23,6 +24,7 @@ SnackBar snackBarWidget({
     padding: const EdgeInsets.all(16),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     behavior: SnackBarBehavior.floating,
+    showCloseIcon: showCloseIcon,
   );
 }
 
@@ -35,7 +37,7 @@ Color getBackgroundColor({
       return Theme.of(context).colorScheme.error;
     case SnackBarType.regular:
     default:
-      return Theme.of(context).colorScheme.primary;
+      return Theme.of(context).colorScheme.tertiary;
   }
 }
 
@@ -48,7 +50,7 @@ Color getTextColor({
       return Theme.of(context).colorScheme.onError;
     case SnackBarType.regular:
     default:
-      return Theme.of(context).colorScheme.onPrimary;
+      return Theme.of(context).colorScheme.onTertiary;
   }
 }
 

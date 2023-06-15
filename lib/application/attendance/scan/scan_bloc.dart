@@ -28,7 +28,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
       await event.map<FutureOr<void>>(
         started: (e) {
           emit(state.copyWith(
-            isLoading: false,
             isScanning: true,
             isConfirming: false,
             hasTakenSelfie: false,

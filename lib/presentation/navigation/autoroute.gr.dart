@@ -10,43 +10,42 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i11;
 import 'package:flutter/material.dart' as _i12;
-import 'package:flutterfire_ui/auth.dart' as _i14;
 import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart'
     as _i13;
 import 'package:lecturer/presentation/pages/attendance/attendance.page.dart'
-    as _i1;
-import 'package:lecturer/presentation/pages/attendance/scan.page.dart' as _i2;
+    as _i2;
+import 'package:lecturer/presentation/pages/attendance/scan.page.dart' as _i1;
 import 'package:lecturer/presentation/pages/attendance/scan_confirmation.page.dart'
     as _i3;
 import 'package:lecturer/presentation/pages/auth/forgot_password.page.dart'
-    as _i4;
+    as _i6;
 import 'package:lecturer/presentation/pages/auth/login.page.dart' as _i5;
-import 'package:lecturer/presentation/pages/auth/otp.page.dart' as _i6;
-import 'package:lecturer/presentation/pages/auth/phone.page.dart' as _i7;
-import 'package:lecturer/presentation/pages/auth/register.page.dart' as _i9;
+import 'package:lecturer/presentation/pages/auth/otp.page.dart' as _i4;
+import 'package:lecturer/presentation/pages/auth/phone.page.dart' as _i9;
+import 'package:lecturer/presentation/pages/auth/register.page.dart' as _i8;
 import 'package:lecturer/presentation/pages/index.page.dart' as _i10;
-import 'package:lecturer/presentation/pages/profile/profile.page.dart' as _i8;
+import 'package:lecturer/presentation/pages/profile/profile.page.dart' as _i7;
 
 abstract class $AppRouter extends _i11.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
   final Map<String, _i11.PageFactory> pagesMap = {
-    AttendanceRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i11.WrappedRoute(child: const _i1.AttendancePage()),
-      );
-    },
     ScanRoute.name: (routeData) {
       final args = routeData.argsAs<ScanRouteArgs>();
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i11.WrappedRoute(
-            child: _i2.ScanPage(
+            child: _i1.ScanPage(
           key: args.key,
           attendanceBloc: args.attendanceBloc,
         )),
+      );
+    },
+    AttendanceRoute.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i11.WrappedRoute(child: const _i2.AttendancePage()),
       );
     },
     ScanConfirmationRoute.name: (routeData) {
@@ -59,10 +58,10 @@ abstract class $AppRouter extends _i11.RootStackRouter {
         ),
       );
     },
-    ForgotPasswordRoute.name: (routeData) {
+    OtpRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ForgotPasswordPage(),
+        child: const _i4.OtpPage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -73,22 +72,10 @@ abstract class $AppRouter extends _i11.RootStackRouter {
         child: _i11.WrappedRoute(child: _i5.LoginPage(key: args.key)),
       );
     },
-    OtpRoute.name: (routeData) {
-      final args = routeData.argsAs<OtpRouteArgs>();
+    ForgotPasswordRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.OtpPage(
-          key: args.key,
-          action: args.action,
-          phone: args.phone,
-          flowKey: args.flowKey,
-        ),
-      );
-    },
-    PhoneVerificationRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.PhoneVerificationPage(),
+        child: const _i6.ForgotPasswordPage(),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -96,13 +83,19 @@ abstract class $AppRouter extends _i11.RootStackRouter {
           orElse: () => const ProfileRouteArgs());
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i11.WrappedRoute(child: _i8.ProfilePage(key: args.key)),
+        child: _i11.WrappedRoute(child: _i7.ProfilePage(key: args.key)),
       );
     },
     RegisterRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.RegisterPage(),
+        child: const _i8.RegisterPage(),
+      );
+    },
+    PhoneVerificationRoute.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i9.PhoneVerificationPage(),
       );
     },
     IndexRoute.name: (routeData) {
@@ -115,21 +108,7 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.AttendancePage]
-class AttendanceRoute extends _i11.PageRouteInfo<void> {
-  const AttendanceRoute({List<_i11.PageRouteInfo>? children})
-      : super(
-          AttendanceRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'AttendanceRoute';
-
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i2.ScanPage]
+/// [_i1.ScanPage]
 class ScanRoute extends _i11.PageRouteInfo<ScanRouteArgs> {
   ScanRoute({
     _i12.Key? key,
@@ -164,6 +143,20 @@ class ScanRouteArgs {
   String toString() {
     return 'ScanRouteArgs{key: $key, attendanceBloc: $attendanceBloc}';
   }
+}
+
+/// generated route for
+/// [_i2.AttendancePage]
+class AttendanceRoute extends _i11.PageRouteInfo<void> {
+  const AttendanceRoute({List<_i11.PageRouteInfo>? children})
+      : super(
+          AttendanceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AttendanceRoute';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
 
 /// generated route for
@@ -206,15 +199,15 @@ class ScanConfirmationRouteArgs {
 }
 
 /// generated route for
-/// [_i4.ForgotPasswordPage]
-class ForgotPasswordRoute extends _i11.PageRouteInfo<void> {
-  const ForgotPasswordRoute({List<_i11.PageRouteInfo>? children})
+/// [_i4.OtpPage]
+class OtpRoute extends _i11.PageRouteInfo<void> {
+  const OtpRoute({List<_i11.PageRouteInfo>? children})
       : super(
-          ForgotPasswordRoute.name,
+          OtpRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ForgotPasswordRoute';
+  static const String name = 'OtpRoute';
 
   static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
@@ -249,69 +242,21 @@ class LoginRouteArgs {
 }
 
 /// generated route for
-/// [_i6.OtpPage]
-class OtpRoute extends _i11.PageRouteInfo<OtpRouteArgs> {
-  OtpRoute({
-    _i12.Key? key,
-    required _i14.AuthAction action,
-    required String phone,
-    required Object flowKey,
-    List<_i11.PageRouteInfo>? children,
-  }) : super(
-          OtpRoute.name,
-          args: OtpRouteArgs(
-            key: key,
-            action: action,
-            phone: phone,
-            flowKey: flowKey,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'OtpRoute';
-
-  static const _i11.PageInfo<OtpRouteArgs> page =
-      _i11.PageInfo<OtpRouteArgs>(name);
-}
-
-class OtpRouteArgs {
-  const OtpRouteArgs({
-    this.key,
-    required this.action,
-    required this.phone,
-    required this.flowKey,
-  });
-
-  final _i12.Key? key;
-
-  final _i14.AuthAction action;
-
-  final String phone;
-
-  final Object flowKey;
-
-  @override
-  String toString() {
-    return 'OtpRouteArgs{key: $key, action: $action, phone: $phone, flowKey: $flowKey}';
-  }
-}
-
-/// generated route for
-/// [_i7.PhoneVerificationPage]
-class PhoneVerificationRoute extends _i11.PageRouteInfo<void> {
-  const PhoneVerificationRoute({List<_i11.PageRouteInfo>? children})
+/// [_i6.ForgotPasswordPage]
+class ForgotPasswordRoute extends _i11.PageRouteInfo<void> {
+  const ForgotPasswordRoute({List<_i11.PageRouteInfo>? children})
       : super(
-          PhoneVerificationRoute.name,
+          ForgotPasswordRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PhoneVerificationRoute';
+  static const String name = 'ForgotPasswordRoute';
 
   static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.ProfilePage]
+/// [_i7.ProfilePage]
 class ProfileRoute extends _i11.PageRouteInfo<ProfileRouteArgs> {
   ProfileRoute({
     _i12.Key? key,
@@ -340,7 +285,7 @@ class ProfileRouteArgs {
 }
 
 /// generated route for
-/// [_i9.RegisterPage]
+/// [_i8.RegisterPage]
 class RegisterRoute extends _i11.PageRouteInfo<void> {
   const RegisterRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -349,6 +294,20 @@ class RegisterRoute extends _i11.PageRouteInfo<void> {
         );
 
   static const String name = 'RegisterRoute';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.PhoneVerificationPage]
+class PhoneVerificationRoute extends _i11.PageRouteInfo<void> {
+  const PhoneVerificationRoute({List<_i11.PageRouteInfo>? children})
+      : super(
+          PhoneVerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PhoneVerificationRoute';
 
   static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }

@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,19 +49,9 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyApP5mztKMvIC5guFqAdYx6llxlb_TwYDs',
-    appId: '1:154470161714:web:72a1b1fc5a2d5a76e88b2b',
-    messagingSenderId: '154470161714',
-    projectId: 'anagkazo-sms',
-    authDomain: 'anagkazo-sms.firebaseapp.com',
-    storageBucket: 'anagkazo-sms.appspot.com',
-    measurementId: 'G-42LE5V3VFX',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDYosl1lSA1m9jNwEmgW-jCLMOmfh9FVag',
-    appId: '1:154470161714:android:3b9b47ef551e640ee88b2b',
+    appId: '1:154470161714:android:418e3378f31af136e88b2b',
     messagingSenderId: '154470161714',
     projectId: 'anagkazo-sms',
     storageBucket: 'anagkazo-sms.appspot.com',
@@ -66,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDTO8LQfa-3_Od5pwy3qQSxxSDhBhR2bsA',
-    appId: '1:154470161714:ios:e4a9762887a9cd40e88b2b',
+    appId: '1:154470161714:ios:36f31e08f24ea51fe88b2b',
     messagingSenderId: '154470161714',
     projectId: 'anagkazo-sms',
     storageBucket: 'anagkazo-sms.appspot.com',
-    iosClientId: '154470161714-gqctc554q2311bojgedamea1uc67qlg8.apps.googleusercontent.com',
-    iosBundleId: 'com.anagkazosms.ta',
+    iosClientId: '154470161714-1vsnn3b0ur3oev1jt0s1gkvqoc37uhbb.apps.googleusercontent.com',
+    iosBundleId: 'com.anagkazosms.lecturer',
   );
 }

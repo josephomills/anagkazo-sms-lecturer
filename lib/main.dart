@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterfire_ui/auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:lecturer/application/app/app_bloc.dart';
@@ -33,10 +32,6 @@ void main() async {
     cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
     persistenceEnabled: true,
   );
-  // FlutterFire UI config
-  FlutterFireUIAuth.configureProviders([
-    const EmailProviderConfiguration(),
-  ]);
 
   runApp(AnagkazoSMSLecturer());
 }

@@ -62,7 +62,7 @@ class ScanConfirmationWidget extends StatelessWidget {
 
         return Container(
           height: state.qr!["type"] == "OUT" ? 300 : 620,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(8),
@@ -72,14 +72,14 @@ class ScanConfirmationWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const Icon(LineAwesomeIcons.qrcode, size: 80),
+              const Icon(LineAwesomeIcons.qrcode, size: 40),
               Text(
                 "QR Code Detected",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Theme.of(context).colorScheme.primary,
                     ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               RichText(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -112,7 +112,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                 ),
               ),
 
-              if (state.qr!["type"] == "IN") const SizedBox(height: 16),
+              if (state.qr!["type"] == "IN") const SizedBox(height: 8),
               // Image holder
               if (state.qr!["type"] == "IN")
                 Stack(
@@ -139,7 +139,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

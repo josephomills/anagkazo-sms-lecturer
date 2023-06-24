@@ -168,8 +168,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
         },
         selfieTaken: (e) => emit(state.copyWith(selfie: e.selfie)),
         scannerStatusChanged: (e) {
-          print("OLD Scanner status: ${state.scannerStatus}");
-          print("NEW Scanner status: ${e.status}");
           emit(state.copyWith(scannerStatus: e.status));
         },
       );

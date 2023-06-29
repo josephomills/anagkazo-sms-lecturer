@@ -5,8 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
-import 'package:moment_dart/moment_dart.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:lecturer/application/auth/auth/auth_bloc.dart';
 import 'package:lecturer/domain/attendance/scan/scan.facade.dart';
 import 'package:lecturer/domain/attendance/scan/scan.failure.dart';
@@ -14,10 +12,12 @@ import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/scan.object.dart';
+import 'package:moment_dart/moment_dart.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
+part 'scan_bloc.freezed.dart';
 part 'scan_event.dart';
 part 'scan_state.dart';
-part 'scan_bloc.freezed.dart';
 
 @injectable
 class ScanBloc extends Bloc<ScanEvent, ScanState> {
@@ -168,8 +168,6 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
         },
         selfieTaken: (e) => emit(state.copyWith(selfie: e.selfie)),
         scannerStatusChanged: (e) {
-          print("OLD Scanner status: ${state.scannerStatus}");
-          print("NEW Scanner status: ${e.status}");
           emit(state.copyWith(scannerStatus: e.status));
         },
       );

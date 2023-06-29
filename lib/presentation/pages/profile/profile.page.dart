@@ -2,15 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:moment_dart/moment_dart.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:lecturer/application/profile/profile_bloc.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/domain/core/util/util.dart';
 import 'package:lecturer/domain/core/util/validator.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
 import 'package:lecturer/presentation/widgets/text_form_field.widget.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:moment_dart/moment_dart.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
@@ -84,8 +84,8 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
                             ClipboardData(text: getIt<ParseUser>().username!));
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
-                          content:
-                              Text("Staff ID copied to clipboard successfully"),
+                          content: Text(
+                              "Lecturer ID copied to clipboard successfully"),
                         ));
                       },
                       icon: const Icon(LineAwesomeIcons.copy),

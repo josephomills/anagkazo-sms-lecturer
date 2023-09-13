@@ -7,6 +7,7 @@ import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/domain/core/util/util.dart';
 import 'package:lecturer/domain/core/util/validator.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
+import 'package:lecturer/presentation/widgets/logout.widget.dart';
 import 'package:lecturer/presentation/widgets/text_form_field.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
@@ -46,6 +47,16 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
                     onPressed: () {},
                     icon: const Icon(LineAwesomeIcons.save),
                   ),
+                IconButton(
+                  onPressed: () => showModalBottomSheet(
+                    context: context,
+                    builder: (context) => const LogoutWidget(),
+                  ),
+                  icon: Icon(
+                    LineAwesomeIcons.alternate_sign_out,
+                    color: Theme.of(context).colorScheme.error,
+                  ),
+                ),
                 const SizedBox(width: 16),
               ],
             ),

@@ -3,7 +3,6 @@ description: Anagkazo SMS Lecturer app
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 0.0.1+1
 
 environment:
   sdk: '>=2.19.3 <3.0.0'
@@ -14,13 +13,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   cached_network_image: ^3.2.0
   intl: ^0.17.0
-  mobile_scanner: ^3.2.0
+  mobile_scanner: ^3.4.1
   auto_route: ^6.2.0
-  firebase_auth: ^4.6.0
-  firebase_core: ^2.12.0
-  firebase_crashlytics: ^3.3.0
-  firebase_dynamic_links: ^5.3.0
-  cloud_firestore: ^4.7.1
   dartz: ^0.10.1
   responsive_framework: ^0.2.0
   flex_color_scheme: ^6.1.2
@@ -40,6 +34,7 @@ dependencies:
   google_fonts: ^4.0.3
   parse_server_sdk_flutter: ^5.1.0
   skeletons: ^0.0.3
+  csv: ^5.0.2
 
 dev_dependencies:
   flutter_test:

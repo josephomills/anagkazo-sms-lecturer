@@ -24,6 +24,6 @@ class ScanState with _$ScanState {
         failureOrScanOption: none(),
         hasTakenSelfie: false,
         scannerStatus: false,
-        yearGroup: "all",
+        yearGroup: "select",
       );
 }

@@ -7,6 +7,7 @@ import 'package:lecturer/application/app/app_bloc.dart';
 import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart';
 import 'package:lecturer/application/attendance/scan/scan_bloc.dart';
 import 'package:lecturer/domain/app/app.failure.dart';
+import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
@@ -29,10 +30,8 @@ class ScanConfirmationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ScanBloc, ScanState>(
-      // buildWhen: (previous, current) =>
-      //     current.selfie?.path != previous.selfie?.path &&
-      //     current.eventOption.isSome(),
-      // listenWhen: (previous, current) => current.failureOrScanOption.isSome(),
+      buildWhen: (previous, current) => current.eventOption.isSome(),
+      listenWhen: (previous, current) => current.failureOrScanOption.isSome(),
       listener: (context, state) {
         state.failureOrScanOption.fold(
           () {},
@@ -65,7 +64,7 @@ class ScanConfirmationWidget extends StatelessWidget {
         final event = state.eventOption.getOrElse(() => EventObject());
 
         return Container(
-          height: state.qr!["type"] == "OUT" ? 400 : 700,
+          height: state.qr!["type"] == "OUT" ? 300 : 500,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
@@ -74,8 +73,7 @@ class ScanConfirmationWidget extends StatelessWidget {
             ),
             color: Theme.of(context).colorScheme.background,
           ),
-          child: ListView(
-            shrinkWrap: true,
+          child: Column(
             children: [
               const Icon(LineAwesomeIcons.qrcode, size: 48),
               Text(
@@ -122,18 +120,17 @@ class ScanConfirmationWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 56),
                   child: DropdownButtonFormField<String>(
+                    value: state.yearGroup,
                     alignment: Alignment.centerLeft,
                     items: buildYearGroupItems(
-                      failureOrYearGroupListOption: context
-                          .read<AppBloc>()
-                          .state
-                          .failureOrYearGroupListOption,
+                      failureOrYearGroupListOption:
+                          getIt<AppBloc>().state.failureOrYearGroupListOption,
                     ),
                     onChanged: (value) => context
                         .read<ScanBloc>()
                         .add(ScanEvent.yearGroupChanged(yearGroup: value)),
                     validator: (value) =>
-                        value == "all" ? "Select a class" : "",
+                        value == "select" ? "Select a class" : "",
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                 ),
@@ -148,7 +145,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                         url: state.selfie != null
                             ? state.selfie!.path
                             : "assets/avatar_generic.jpg",
-                        size: 160,
+                        size: 120,
                         onTap: () async => takeSelfie(context),
                       ),
                     ),
@@ -167,7 +164,8 @@ class ScanConfirmationWidget extends StatelessWidget {
                 ),
               const SizedBox(height: 16),
               Row(
-                children:[
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   ButtonWidget(
                     label: "Cancel",
                     widthFactor: 0.35,
@@ -196,7 +194,6 @@ class ScanConfirmationWidget extends StatelessWidget {
                 ],
               ),
             ],
-            
           ),
         );
       },
@@ -206,8 +203,8 @@ class ScanConfirmationWidget extends StatelessWidget {
   List<DropdownMenuItem<String>> buildYearGroupItems(
       {required Option<Either<AppFailure, List<YearGroupObject>>>
           failureOrYearGroupListOption}) {
-    var defaultElement =
-        const DropdownMenuItem(value: "all", child: Text("All Classes"));
+    var defaultElement = const DropdownMenuItem(
+        value: "select", child: Text("Select a class..."));
     return failureOrYearGroupListOption.fold(
       () => [defaultElement],
       (either) {

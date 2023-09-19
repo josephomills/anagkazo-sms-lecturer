@@ -14,7 +14,7 @@ class ScanDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 500,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
@@ -23,8 +23,7 @@ class ScanDetailsWidget extends StatelessWidget {
         ),
         color: Theme.of(context).colorScheme.background,
       ),
-      child: ListView(
-        shrinkWrap: true,
+      child: Column(
         children: [
           const Icon(LineAwesomeIcons.qrcode, size: 48),
           Text(
@@ -33,7 +32,7 @@ class ScanDetailsWidget extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           RichText(
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -50,7 +49,7 @@ class ScanDetailsWidget extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           RichText(
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -61,7 +60,7 @@ class ScanDetailsWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 TextSpan(
-                  text: scan.yearGroup!.name!,
+                  text: scan.yearGroup?.name ?? "",
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
@@ -84,14 +83,14 @@ class ScanDetailsWidget extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           // Image holder
           Center(
             child: AvatarWidget(
               url: scan.selfie != null
                   ? scan.selfie!.url!
                   : "assets/avatar_generic.jpg",
-              size: 160,
+              size: 120,
             ),
           ),
           const SizedBox(height: 16),

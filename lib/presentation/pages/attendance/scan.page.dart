@@ -57,7 +57,8 @@ class _ScanPageState extends State<ScanPage>
     _animationCtrl.forward(from: 0.0);
 
     _scannerCtrl = MobileScannerController(
-      detectionSpeed: DetectionSpeed.noDuplicates,
+      detectionSpeed: DetectionSpeed.normal,
+      detectionTimeoutMs: 5000, // wait 5 seconds before another scan
       formats: [BarcodeFormat.qrCode],
     );
 
@@ -75,9 +76,8 @@ class _ScanPageState extends State<ScanPage>
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ScanBloc, ScanState>(
-      // listenWhen: (previous, current) =>
-      //     current.isConfirming != previous.isConfirming ||
-      //     current.failureOrScanOption.isSome(),
+      listenWhen: (previous, current) =>
+          current.isConfirming != previous.isConfirming,
       listener: (context, state) {
         // Show confirmation modal
         if (state.isConfirming) {

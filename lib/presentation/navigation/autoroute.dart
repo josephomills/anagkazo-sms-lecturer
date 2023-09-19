@@ -25,11 +25,6 @@ class AppRouter extends $AppRouter {
         ),
       ],
     ),
-    AutoRoute(page: RegisterRoute.page),
-    AutoRoute(page: ForgotPasswordRoute.page),
-    AutoRoute(page: PhoneVerificationRoute.page),
-    AutoRoute(page: OtpRoute.page),
     AutoRoute(page: ScanRoute.page, guards: [AuthGuard()]),
-    AutoRoute(page: ScanConfirmationRoute.page, guards: [AuthGuard()]),
   ];
 }

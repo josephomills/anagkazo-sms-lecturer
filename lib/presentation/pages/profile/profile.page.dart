@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lecturer/presentation/widgets/button.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
@@ -11,6 +12,7 @@ import 'package:lecturer/domain/core/util/util.dart';
 import 'package:lecturer/domain/core/util/validator.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
 import 'package:lecturer/presentation/widgets/text_form_field.widget.dart';
+import 'package:csv/csv.dart';
 
 @RoutePage()
 class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
@@ -168,7 +170,7 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
                         validator:
                             getIt<Validator>().validateEmail, // TODO: change
                         onChanged: (text) {},
-                        label: "Phone Number",
+                        label: "Pho'ne Number",
                         hint: "What is your phone number?",
                         enabled: false,
                         suffixIcon: const Icon(LineAwesomeIcons.phone),
@@ -186,6 +188,36 @@ class ProfilePage extends StatelessWidget implements AutoRouteWrapper {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(height: 24),
+                ButtonWidget(
+                  label: "Register Class",
+                  onTap: () async {
+                    var classes = ["2025B", "2025C", "2027A"];
+                    for (var c in classes) {
+                      final _rawData =
+                          await rootBundle.loadString("assets/$c.csv");
+                      List<List<dynamic>> list =
+                          const CsvToListConverter().convert(_rawData);
+                      for (var row in list) {
+                        ParseUser user = ParseUser.createUser(
+                          row[1].toString().trim(),
+                          "${row[1].toString().trim()}123",
+                          row[7].trim(),
+                        );
+                        user.set("firstname", row[2].trim());
+                        user.set("lastname", row[4].trim());
+                        if (row[3].isNotEmpty) {
+                          user.set("middleName", row[3].trim());
+                        }
+                        user.set("phone", row[5].toString().trim());
+                        user.set("whatsapp", row[6].toString().trim());
+                        user.set("isStaff", false);
+                        user.set("isStudent", true);
+                        await user.signUp();
+                      }
+                    }
+                  },
                 ),
               ],
             ),

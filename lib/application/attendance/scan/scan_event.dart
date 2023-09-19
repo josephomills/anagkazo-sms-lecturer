@@ -10,4 +10,6 @@ class ScanEvent with _$ScanEvent {
   const factory ScanEvent.selfieTaken({XFile? selfie}) = _SelfieTaken;
   const factory ScanEvent.scannerStatusChanged({required bool status}) =
       _ScannerStarted;
+  const factory ScanEvent.yearGroupChanged({required String? yearGroup}) =
+      _YearGroupChanged;
 }

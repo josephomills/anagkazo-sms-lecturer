@@ -1,14 +1,18 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:lecturer/application/app/app_bloc.dart';
 import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart';
+import 'package:lecturer/application/attendance/scan/scan_bloc.dart';
+import 'package:lecturer/domain/app/app.failure.dart';
+import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
+import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
+import 'package:lecturer/presentation/widgets/button.widget.dart';
 import 'package:lecturer/presentation/widgets/snackbar.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:lecturer/application/attendance/scan/scan_bloc.dart';
-import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
-import 'package:lecturer/presentation/widgets/button.widget.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ScanConfirmationWidget extends StatelessWidget {
@@ -25,10 +29,10 @@ class ScanConfirmationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ScanBloc, ScanState>(
-      buildWhen: (previous, current) =>
-          current.selfie?.path != previous.selfie?.path &&
-          current.eventOption.isSome(),
-      listenWhen: (previous, current) => current.failureOrScanOption.isSome(),
+      // buildWhen: (previous, current) =>
+      //     current.selfie?.path != previous.selfie?.path &&
+      //     current.eventOption.isSome(),
+      // listenWhen: (previous, current) => current.failureOrScanOption.isSome(),
       listener: (context, state) {
         state.failureOrScanOption.fold(
           () {},
@@ -61,8 +65,8 @@ class ScanConfirmationWidget extends StatelessWidget {
         final event = state.eventOption.getOrElse(() => EventObject());
 
         return Container(
-          height: state.qr!["type"] == "OUT" ? 300 : 620,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          height: state.qr!["type"] == "OUT" ? 400 : 700,
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(8),
@@ -70,16 +74,17 @@ class ScanConfirmationWidget extends StatelessWidget {
             ),
             color: Theme.of(context).colorScheme.background,
           ),
-          child: Column(
+          child: ListView(
+            shrinkWrap: true,
             children: [
-              const Icon(LineAwesomeIcons.qrcode, size: 80),
+              const Icon(LineAwesomeIcons.qrcode, size: 48),
               Text(
                 "QR Code Detected",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Theme.of(context).colorScheme.primary,
                     ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 8),
               RichText(
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -111,8 +116,29 @@ class ScanConfirmationWidget extends StatelessWidget {
                   ],
                 ),
               ),
-
+              // Class picker
+              if (state.qr!["type"] == "IN") const SizedBox(height: 8),
+              if (state.qr!["type"] == "IN")
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 56),
+                  child: DropdownButtonFormField<String>(
+                    alignment: Alignment.centerLeft,
+                    items: buildYearGroupItems(
+                      failureOrYearGroupListOption: context
+                          .read<AppBloc>()
+                          .state
+                          .failureOrYearGroupListOption,
+                    ),
+                    onChanged: (value) => context
+                        .read<ScanBloc>()
+                        .add(ScanEvent.yearGroupChanged(yearGroup: value)),
+                    validator: (value) =>
+                        value == "all" ? "Select a class" : "",
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  ),
+                ),
               if (state.qr!["type"] == "IN") const SizedBox(height: 16),
+
               // Image holder
               if (state.qr!["type"] == "IN")
                 Stack(
@@ -139,7 +165,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -161,7 +187,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                     isLoading: state.isLoading,
                     label: "Confirm",
                     widthFactor: 0.35,
-                    onTap: state.selfie != null
+                    onTap: (state.qr!["type"] == "OUT" || state.selfie != null)
                         ? () {
                             context
                                 .read<ScanBloc>()
@@ -173,6 +199,32 @@ class ScanConfirmationWidget extends StatelessWidget {
               ),
             ],
           ),
+        );
+      },
+    );
+  }
+
+  List<DropdownMenuItem<String>> buildYearGroupItems(
+      {required Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption}) {
+    var defaultElement =
+        const DropdownMenuItem(value: "all", child: Text("All Classes"));
+    return failureOrYearGroupListOption.fold(
+      () => [defaultElement],
+      (either) {
+        return either.fold(
+          (l) => [defaultElement],
+          (yearGroupList) {
+            var list = yearGroupList
+                .map((yearGroup) => DropdownMenuItem<String>(
+                      value: yearGroup.objectId,
+                      child: Text(yearGroup.name!),
+                    ))
+                .toList();
+            list.insert(0, defaultElement);
+
+            return list;
+          },
         );
       },
     );

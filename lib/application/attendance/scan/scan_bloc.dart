@@ -93,9 +93,11 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           // Check for a valid scan
           // 1. Scan is on the same day
           // 2. Student is in a class the event is valid for
+          final selectedYearGroup = YearGroupObject()
+            ..objectId = state.yearGroup;
           final bool isValid = isValidScan(
             event: event,
-            studentYearGroup: YearGroupObject(),
+            studentYearGroup: selectedYearGroup,
             allowedYearGroups: [],
           );
 
@@ -105,6 +107,7 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
                 event: event,
                 dateTime: state.scannedAt!,
                 selfiePath: state.selfie!.path,
+                yearGroup: selectedYearGroup,
               );
 
               emit(state.copyWith(
@@ -169,6 +172,9 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
         selfieTaken: (e) => emit(state.copyWith(selfie: e.selfie)),
         scannerStatusChanged: (e) {
           emit(state.copyWith(scannerStatus: e.status));
+        },
+        yearGroupChanged: (e) {
+          emit(state.copyWith(yearGroup: e.yearGroup));
         },
       );
     });

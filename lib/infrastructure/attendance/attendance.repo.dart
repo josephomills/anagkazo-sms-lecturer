@@ -28,6 +28,7 @@ class AttendanceRepo implements AttendanceFacade {
         ScanObject.kEvent,
         "${ScanObject.kEvent}.${EventObject.kEventType}",
         ScanObject.kSelfie,
+        ScanObject.kYearGroup,
       ])
       ..orderByDescending(ScanObject.kScannedInAt)
       ..setLimit(50);

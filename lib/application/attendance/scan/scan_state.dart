@@ -8,6 +8,7 @@ class ScanState with _$ScanState {
     required bool hasTakenSelfie,
     required bool isConfirming,
     required bool scannerStatus,
+    required String? yearGroup,
     DateTime? scannedAt,
     Map<String, dynamic>? qr,
     XFile? selfie,
@@ -23,5 +24,6 @@ class ScanState with _$ScanState {
         failureOrScanOption: none(),
         hasTakenSelfie: false,
         scannerStatus: false,
+        yearGroup: "all",
       );
 }

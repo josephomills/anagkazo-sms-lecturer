@@ -19,4 +19,10 @@ class YearGroupObject extends ParseObject implements ParseCloneable {
   DateTime? get admittedAt => get<DateTime>(kAdmittedAt);
   set admittedAt(DateTime? admittedAt) =>
       set<DateTime?>(kAdmittedAt, admittedAt);
+
+  static const String kStudents = 'students';
+
+  List<ParseUser>? get students => get<List<ParseUser>>(kStudents);
+  set students(List<ParseUser>? students) =>
+      set<List<ParseUser>?>(kStudents, students);
 }

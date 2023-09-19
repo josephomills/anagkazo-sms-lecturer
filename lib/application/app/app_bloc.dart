@@ -8,10 +8,11 @@ import 'package:injectable/injectable.dart';
 import 'package:lecturer/domain/app/app.facade.dart';
 import 'package:lecturer/domain/app/app.failure.dart';
 import 'package:lecturer/infrastructure/academics/models/rotation.object.dart';
+import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
 
+part 'app_bloc.freezed.dart';
 part 'app_event.dart';
 part 'app_state.dart';
-part 'app_bloc.freezed.dart';
 
 @singleton
 class AppBloc extends Bloc<AppEvent, AppState> {
@@ -20,10 +21,18 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc(this._appFacade) : super(AppState.initial()) {
     on<AppEvent>((event, emit) async {
       await event.map<FutureOr<void>>(
-        started: (e) {
+        started: (e) async {
+          emit(state.copyWith(isLoading: true));
           // TODO: pick settings from disk
           // Fetch rotations
           // add(const AppEvent.rotationsFetched());
+          // Fetch all year groups
+          final failureOrYearGroupList = await _appFacade.getAllYearGroups();
+
+          emit(state.copyWith(
+            isLoading: false,
+            failureOrYearGroupListOption: some(failureOrYearGroupList),
+          ));
         },
         themeModeToggled: (e) {
           // change state variable
@@ -36,6 +45,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
             state.copyWith(failureOrRotationsOption: some(failureOrRotations)),
           );
         },
+        classesFetched: (e) async {},
       );
     });
   }

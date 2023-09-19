@@ -21,6 +21,7 @@ mixin _$AppEvent {
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
     required TResult Function() rotationsFetched,
+    required TResult Function() classesFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AppEvent {
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
     TResult? Function()? rotationsFetched,
+    TResult? Function()? classesFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AppEvent {
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
     TResult Function()? rotationsFetched,
+    TResult Function()? classesFetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AppEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
     required TResult Function(_RotationsFetched value) rotationsFetched,
+    required TResult Function(_ClassesFetched value) classesFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AppEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
     TResult? Function(_RotationsFetched value)? rotationsFetched,
+    TResult? Function(_ClassesFetched value)? classesFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AppEvent {
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
     TResult Function(_RotationsFetched value)? rotationsFetched,
+    TResult Function(_ClassesFetched value)? classesFetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,6 +125,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
     required TResult Function() rotationsFetched,
+    required TResult Function() classesFetched,
   }) {
     return started();
   }
@@ -129,6 +136,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
     TResult? Function()? rotationsFetched,
+    TResult? Function()? classesFetched,
   }) {
     return started?.call();
   }
@@ -139,6 +147,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
     TResult Function()? rotationsFetched,
+    TResult Function()? classesFetched,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -153,6 +162,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
     required TResult Function(_RotationsFetched value) rotationsFetched,
+    required TResult Function(_ClassesFetched value) classesFetched,
   }) {
     return started(this);
   }
@@ -163,6 +173,7 @@ class _$_Started implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
     TResult? Function(_RotationsFetched value)? rotationsFetched,
+    TResult? Function(_ClassesFetched value)? classesFetched,
   }) {
     return started?.call(this);
   }
@@ -173,6 +184,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
     TResult Function(_RotationsFetched value)? rotationsFetched,
+    TResult Function(_ClassesFetched value)? classesFetched,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -254,6 +266,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
     required TResult Function() rotationsFetched,
+    required TResult Function() classesFetched,
   }) {
     return themeModeToggled(themeMode);
   }
@@ -264,6 +277,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
     TResult? Function()? rotationsFetched,
+    TResult? Function()? classesFetched,
   }) {
     return themeModeToggled?.call(themeMode);
   }
@@ -274,6 +288,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
     TResult Function()? rotationsFetched,
+    TResult Function()? classesFetched,
     required TResult orElse(),
   }) {
     if (themeModeToggled != null) {
@@ -288,6 +303,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
     required TResult Function(_RotationsFetched value) rotationsFetched,
+    required TResult Function(_ClassesFetched value) classesFetched,
   }) {
     return themeModeToggled(this);
   }
@@ -298,6 +314,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
     TResult? Function(_RotationsFetched value)? rotationsFetched,
+    TResult? Function(_ClassesFetched value)? classesFetched,
   }) {
     return themeModeToggled?.call(this);
   }
@@ -308,6 +325,7 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
     TResult Function(_RotationsFetched value)? rotationsFetched,
+    TResult Function(_ClassesFetched value)? classesFetched,
     required TResult orElse(),
   }) {
     if (themeModeToggled != null) {
@@ -368,6 +386,7 @@ class _$_RotationsFetched implements _RotationsFetched {
     required TResult Function() started,
     required TResult Function(ThemeMode themeMode) themeModeToggled,
     required TResult Function() rotationsFetched,
+    required TResult Function() classesFetched,
   }) {
     return rotationsFetched();
   }
@@ -378,6 +397,7 @@ class _$_RotationsFetched implements _RotationsFetched {
     TResult? Function()? started,
     TResult? Function(ThemeMode themeMode)? themeModeToggled,
     TResult? Function()? rotationsFetched,
+    TResult? Function()? classesFetched,
   }) {
     return rotationsFetched?.call();
   }
@@ -388,6 +408,7 @@ class _$_RotationsFetched implements _RotationsFetched {
     TResult Function()? started,
     TResult Function(ThemeMode themeMode)? themeModeToggled,
     TResult Function()? rotationsFetched,
+    TResult Function()? classesFetched,
     required TResult orElse(),
   }) {
     if (rotationsFetched != null) {
@@ -402,6 +423,7 @@ class _$_RotationsFetched implements _RotationsFetched {
     required TResult Function(_Started value) started,
     required TResult Function(_ThemeModeToggled value) themeModeToggled,
     required TResult Function(_RotationsFetched value) rotationsFetched,
+    required TResult Function(_ClassesFetched value) classesFetched,
   }) {
     return rotationsFetched(this);
   }
@@ -412,6 +434,7 @@ class _$_RotationsFetched implements _RotationsFetched {
     TResult? Function(_Started value)? started,
     TResult? Function(_ThemeModeToggled value)? themeModeToggled,
     TResult? Function(_RotationsFetched value)? rotationsFetched,
+    TResult? Function(_ClassesFetched value)? classesFetched,
   }) {
     return rotationsFetched?.call(this);
   }
@@ -422,6 +445,7 @@ class _$_RotationsFetched implements _RotationsFetched {
     TResult Function(_Started value)? started,
     TResult Function(_ThemeModeToggled value)? themeModeToggled,
     TResult Function(_RotationsFetched value)? rotationsFetched,
+    TResult Function(_ClassesFetched value)? classesFetched,
     required TResult orElse(),
   }) {
     if (rotationsFetched != null) {
@@ -436,10 +460,127 @@ abstract class _RotationsFetched implements AppEvent {
 }
 
 /// @nodoc
+abstract class _$$_ClassesFetchedCopyWith<$Res> {
+  factory _$$_ClassesFetchedCopyWith(
+          _$_ClassesFetched value, $Res Function(_$_ClassesFetched) then) =
+      __$$_ClassesFetchedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ClassesFetchedCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$_ClassesFetched>
+    implements _$$_ClassesFetchedCopyWith<$Res> {
+  __$$_ClassesFetchedCopyWithImpl(
+      _$_ClassesFetched _value, $Res Function(_$_ClassesFetched) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ClassesFetched implements _ClassesFetched {
+  const _$_ClassesFetched();
+
+  @override
+  String toString() {
+    return 'AppEvent.classesFetched()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ClassesFetched);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(ThemeMode themeMode) themeModeToggled,
+    required TResult Function() rotationsFetched,
+    required TResult Function() classesFetched,
+  }) {
+    return classesFetched();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(ThemeMode themeMode)? themeModeToggled,
+    TResult? Function()? rotationsFetched,
+    TResult? Function()? classesFetched,
+  }) {
+    return classesFetched?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(ThemeMode themeMode)? themeModeToggled,
+    TResult Function()? rotationsFetched,
+    TResult Function()? classesFetched,
+    required TResult orElse(),
+  }) {
+    if (classesFetched != null) {
+      return classesFetched();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ThemeModeToggled value) themeModeToggled,
+    required TResult Function(_RotationsFetched value) rotationsFetched,
+    required TResult Function(_ClassesFetched value) classesFetched,
+  }) {
+    return classesFetched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult? Function(_RotationsFetched value)? rotationsFetched,
+    TResult? Function(_ClassesFetched value)? classesFetched,
+  }) {
+    return classesFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ThemeModeToggled value)? themeModeToggled,
+    TResult Function(_RotationsFetched value)? rotationsFetched,
+    TResult Function(_ClassesFetched value)? classesFetched,
+    required TResult orElse(),
+  }) {
+    if (classesFetched != null) {
+      return classesFetched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClassesFetched implements AppEvent {
+  const factory _ClassesFetched() = _$_ClassesFetched;
+}
+
+/// @nodoc
 mixin _$AppState {
   ThemeMode get themeMode => throw _privateConstructorUsedError;
   Option<Either<AppFailure, List<RotationObject>>>
       get failureOrRotationsOption => throw _privateConstructorUsedError;
+  Option<Either<AppFailure, List<YearGroupObject>>>
+      get failureOrYearGroupListOption => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -453,8 +594,10 @@ abstract class $AppStateCopyWith<$Res> {
   @useResult
   $Res call(
       {ThemeMode themeMode,
-      Option<Either<AppFailure, List<RotationObject>>>
-          failureOrRotationsOption});
+      Option<Either<AppFailure, List<RotationObject>>> failureOrRotationsOption,
+      Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -472,6 +615,8 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   $Res call({
     Object? themeMode = null,
     Object? failureOrRotationsOption = null,
+    Object? failureOrYearGroupListOption = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       themeMode: null == themeMode
@@ -482,6 +627,14 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
           ? _value.failureOrRotationsOption
           : failureOrRotationsOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AppFailure, List<RotationObject>>>,
+      failureOrYearGroupListOption: null == failureOrYearGroupListOption
+          ? _value.failureOrYearGroupListOption
+          : failureOrYearGroupListOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AppFailure, List<YearGroupObject>>>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -495,8 +648,10 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   @useResult
   $Res call(
       {ThemeMode themeMode,
-      Option<Either<AppFailure, List<RotationObject>>>
-          failureOrRotationsOption});
+      Option<Either<AppFailure, List<RotationObject>>> failureOrRotationsOption,
+      Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -512,6 +667,8 @@ class __$$_AppStateCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = null,
     Object? failureOrRotationsOption = null,
+    Object? failureOrYearGroupListOption = null,
+    Object? isLoading = null,
   }) {
     return _then(_$_AppState(
       themeMode: null == themeMode
@@ -522,6 +679,14 @@ class __$$_AppStateCopyWithImpl<$Res>
           ? _value.failureOrRotationsOption
           : failureOrRotationsOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AppFailure, List<RotationObject>>>,
+      failureOrYearGroupListOption: null == failureOrYearGroupListOption
+          ? _value.failureOrYearGroupListOption
+          : failureOrYearGroupListOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AppFailure, List<YearGroupObject>>>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -530,17 +695,25 @@ class __$$_AppStateCopyWithImpl<$Res>
 
 class _$_AppState implements _AppState {
   const _$_AppState(
-      {required this.themeMode, required this.failureOrRotationsOption});
+      {required this.themeMode,
+      required this.failureOrRotationsOption,
+      required this.failureOrYearGroupListOption,
+      required this.isLoading});
 
   @override
   final ThemeMode themeMode;
   @override
   final Option<Either<AppFailure, List<RotationObject>>>
       failureOrRotationsOption;
+  @override
+  final Option<Either<AppFailure, List<YearGroupObject>>>
+      failureOrYearGroupListOption;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'AppState(themeMode: $themeMode, failureOrRotationsOption: $failureOrRotationsOption)';
+    return 'AppState(themeMode: $themeMode, failureOrRotationsOption: $failureOrRotationsOption, failureOrYearGroupListOption: $failureOrYearGroupListOption, isLoading: $isLoading)';
   }
 
   @override
@@ -552,12 +725,18 @@ class _$_AppState implements _AppState {
                 other.themeMode == themeMode) &&
             (identical(
                     other.failureOrRotationsOption, failureOrRotationsOption) ||
-                other.failureOrRotationsOption == failureOrRotationsOption));
+                other.failureOrRotationsOption == failureOrRotationsOption) &&
+            (identical(other.failureOrYearGroupListOption,
+                    failureOrYearGroupListOption) ||
+                other.failureOrYearGroupListOption ==
+                    failureOrYearGroupListOption) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, themeMode, failureOrRotationsOption);
+  int get hashCode => Object.hash(runtimeType, themeMode,
+      failureOrRotationsOption, failureOrYearGroupListOption, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -570,12 +749,20 @@ abstract class _AppState implements AppState {
   const factory _AppState(
       {required final ThemeMode themeMode,
       required final Option<Either<AppFailure, List<RotationObject>>>
-          failureOrRotationsOption}) = _$_AppState;
+          failureOrRotationsOption,
+      required final Option<Either<AppFailure, List<YearGroupObject>>>
+          failureOrYearGroupListOption,
+      required final bool isLoading}) = _$_AppState;
 
   @override
   ThemeMode get themeMode;
   @override
   Option<Either<AppFailure, List<RotationObject>>> get failureOrRotationsOption;
+  @override
+  Option<Either<AppFailure, List<YearGroupObject>>>
+      get failureOrYearGroupListOption;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$_AppStateCopyWith<_$_AppState> get copyWith =>

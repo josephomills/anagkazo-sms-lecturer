@@ -1,8 +1,6 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:image_picker/image_picker.dart';
@@ -202,16 +200,16 @@ class _ScanConfirmationPageState extends State<ScanConfirmationPage> {
   }
 
   void recordAttendance() {
-    FirebaseFirestore.instance
-        .collection("ta/${FirebaseAuth.instance.currentUser!.uid}/attendance")
-        .add({
-          "lecture": _lectureVal,
-          "classOf": _classVal,
-          "type": widget.details["type"]! as String,
-          "dateTime": widget.details["dateTime"],
-        })
-        .then((ref) => print("Record added"))
-        .onError((error, stackTrace) => null);
+    // FirebaseFirestore.instance
+    //     .collection("ta/${FirebaseAuth.instance.currentUser!.uid}/attendance")
+    //     .add({
+    //       "lecture": _lectureVal,
+    //       "classOf": _classVal,
+    //       "type": widget.details["type"]! as String,
+    //       "dateTime": widget.details["dateTime"],
+    //     })
+    //     .then((ref) => print("Record added"))
+    //     .onError((error, stackTrace) => null);
   }
 
   bool isValidScan(DateTime dateTime) {

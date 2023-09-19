@@ -1,5 +1,6 @@
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 class ScanObject extends ParseObject implements ParseCloneable {
   ScanObject() : super(_kTableName);
@@ -36,4 +37,10 @@ class ScanObject extends ParseObject implements ParseCloneable {
 
   ParseFileBase? get selfie => get<ParseFileBase>(kSelfie);
   set selfie(ParseFileBase? selfie) => set<ParseFileBase?>(kSelfie, selfie);
+
+  static const String kYearGroup = 'yearGroup';
+
+  YearGroupObject? get yearGroup => get<YearGroupObject>(kYearGroup);
+  set yearGroup(YearGroupObject? yearGroup) =>
+      set<YearGroupObject?>(kYearGroup, yearGroup);
 }

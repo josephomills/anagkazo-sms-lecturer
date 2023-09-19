@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lecturer/domain/core/extensions/moment.ext.dart';
+import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
+import 'package:lecturer/infrastructure/attendance/models/scan.object.dart';
 import 'package:lecturer/presentation/widgets/scan_details.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
-import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
-import 'package:lecturer/infrastructure/attendance/models/scan.object.dart';
 
 class ScanWidget extends StatelessWidget {
   const ScanWidget({
@@ -88,6 +88,7 @@ class ScanWidget extends StatelessWidget {
           ),
         ),
         onTap: () => showModalBottomSheet(
+            // isScrollControlled: true,
             context: context,
             builder: (context) {
               return ScanDetailsWidget(scan: scan);

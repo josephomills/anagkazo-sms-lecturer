@@ -31,7 +31,7 @@ import 'package:lecturer/infrastructure/attendance/scan.repo.dart' as _i13;
 import 'package:lecturer/infrastructure/auth/auth.repo.dart' as _i8;
 
 extension GetItInjectableX on _i1.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i1.GetIt init({
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,

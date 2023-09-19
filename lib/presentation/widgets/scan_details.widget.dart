@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lecturer/infrastructure/attendance/models/scan.object.dart';
 import 'package:lecturer/presentation/widgets/avatar.widget.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:lecturer/presentation/widgets/button.widget.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moment_dart/moment_dart.dart';
 
 class ScanDetailsWidget extends StatelessWidget {
@@ -14,8 +14,8 @@ class ScanDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 620,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+      height: 400,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(8),
@@ -23,16 +23,17 @@ class ScanDetailsWidget extends StatelessWidget {
         ),
         color: Theme.of(context).colorScheme.background,
       ),
-      child: Column(
+      child: ListView(
+        shrinkWrap: true,
         children: [
-          const Icon(LineAwesomeIcons.qrcode, size: 80),
+          const Icon(LineAwesomeIcons.qrcode, size: 48),
           Text(
             "Scan Details",
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           RichText(
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -44,6 +45,23 @@ class ScanDetailsWidget extends StatelessWidget {
                 ),
                 TextSpan(
                   text: scan.event!.name!,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          RichText(
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "Class: ",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                TextSpan(
+                  text: scan.yearGroup!.name!,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
@@ -76,7 +94,7 @@ class ScanDetailsWidget extends StatelessWidget {
               size: 160,
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16),
           ButtonWidget(
             isLoading: false,
             label: "OK",

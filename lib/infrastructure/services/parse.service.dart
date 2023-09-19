@@ -1,10 +1,10 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:lecturer/infrastructure/academics/models/rotation.object.dart';
+import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/event_type.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/scan.object.dart';
-import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 Future<void> initParse() async {
   await Parse().initialize(
@@ -12,7 +12,7 @@ Future<void> initParse() async {
     dotenv.get("SERVER_URL"),
     clientKey: dotenv.get("CLIENT_KEY"),
     debug: true,
-    coreStore: await CoreStoreSembastImp.getInstance(),
+    coreStore: await CoreStoreSembast.getInstance(),
     liveQueryUrl: dotenv.get("LIVE_QUERY_URL"),
     registeredSubClassMap: {
       "YearGroup": () => YearGroupObject(),

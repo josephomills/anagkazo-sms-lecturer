@@ -4,14 +4,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:lecturer/application/attendance/scan/scan_bloc.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/presentation/widgets/animations/scanner_animation.widget.dart';
 import 'package:lecturer/presentation/widgets/loader.widget.dart';
 import 'package:lecturer/presentation/widgets/scan_confirmation.widget.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 /// Scan page
 @RoutePage()
@@ -47,11 +47,6 @@ class _ScanPageState extends State<ScanPage>
     _animationCtrl =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
 
-    _scannerCtrl = MobileScannerController(
-      detectionSpeed: DetectionSpeed.noDuplicates,
-      formats: [BarcodeFormat.qrCode],
-    );
-
     _animationCtrl.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         animateScanAnimation(reverse: true);
@@ -60,6 +55,11 @@ class _ScanPageState extends State<ScanPage>
       }
     });
     _animationCtrl.forward(from: 0.0);
+
+    _scannerCtrl = MobileScannerController(
+      detectionSpeed: DetectionSpeed.noDuplicates,
+      formats: [BarcodeFormat.qrCode],
+    );
 
     super.initState();
   }
@@ -75,14 +75,15 @@ class _ScanPageState extends State<ScanPage>
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ScanBloc, ScanState>(
-      listenWhen: (previous, current) =>
-          current.isConfirming != previous.isConfirming ||
-          current.failureOrScanOption.isSome(),
+      // listenWhen: (previous, current) =>
+      //     current.isConfirming != previous.isConfirming ||
+      //     current.failureOrScanOption.isSome(),
       listener: (context, state) {
         // Show confirmation modal
         if (state.isConfirming) {
           // showbottomsheet
           showModalBottomSheet(
+            isScrollControlled: true,
             context: context,
             builder: (_) => MultiBlocProvider(
               providers: [
@@ -92,18 +93,18 @@ class _ScanPageState extends State<ScanPage>
               child: const ScanConfirmationWidget(),
             ),
           ).whenComplete(() {
-            if (state.scannerStatus == false) {
-              try {
-                _scannerCtrl.start();
-                context
-                    .read<ScanBloc>()
-                    .add(const ScanEvent.scannerStatusChanged(status: true));
-              } on MobileScannerException catch (e) {
-                print(e.errorDetails!.message);
-              } catch (e) {
-                print(e);
-              }
-            }
+            // if (state.scannerStatus == false) {
+            //   try {
+            //     _scannerCtrl.start();
+            //     context
+            //         .read<ScanBloc>()
+            //         .add(const ScanEvent.scannerStatusChanged(status: true));
+            //   } on MobileScannerException catch (e) {
+            //     print(e.errorDetails!.message);
+            //   } catch (e) {
+            //     print(e);
+            //   }
+            // }
 
             // Do something when modal is closed
             context.read<ScanBloc>().add(const ScanEvent.started());
@@ -130,11 +131,11 @@ class _ScanPageState extends State<ScanPage>
               // Scan camera view
               MobileScanner(
                 controller: _scannerCtrl,
-                onScannerStarted: (arguments) {
-                  context
-                      .read<ScanBloc>()
-                      .add(const ScanEvent.scannerStatusChanged(status: true));
-                },
+                // onScannerStarted: (arguments) {
+                //   context
+                //       .read<ScanBloc>()
+                //       .add(const ScanEvent.scannerStatusChanged(status: true));
+                // },
                 onDetect: (capture) {
                   if (capture.barcodes.isNotEmpty) {
                     // Example payload
@@ -152,9 +153,9 @@ class _ScanPageState extends State<ScanPage>
                           .add(ScanEvent.scanDetected(qr: map));
 
                       // Workaround to avoid duplicate scans
-                      _scannerCtrl.stop();
-                      context.read<ScanBloc>().add(
-                          const ScanEvent.scannerStatusChanged(status: false));
+                      // _scannerCtrl.stop();
+                      // context.read<ScanBloc>().add(
+                      //     const ScanEvent.scannerStatusChanged(status: false));
                     }
                   }
                 },

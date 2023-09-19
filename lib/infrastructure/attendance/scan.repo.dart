@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:moment_dart/moment_dart.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:lecturer/domain/attendance/scan/scan.facade.dart';
 import 'package:lecturer/domain/attendance/scan/scan.failure.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/infrastructure/academics/models/year_group.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/event.object.dart';
 import 'package:lecturer/infrastructure/attendance/models/scan.object.dart';
+import 'package:moment_dart/moment_dart.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 @Injectable(as: ScanFacade)
 class ScanRepo implements ScanFacade {
@@ -28,6 +28,7 @@ class ScanRepo implements ScanFacade {
     required EventObject event,
     required DateTime dateTime,
     required String selfiePath,
+    required YearGroupObject yearGroup,
   }) async {
     final user = getIt<ParseUser>();
 
@@ -57,7 +58,8 @@ class ScanRepo implements ScanFacade {
           ..user = user
           ..event = event
           ..selfie = selfie
-          ..scannedInAt = dateTime;
+          ..scannedInAt = dateTime
+          ..yearGroup = yearGroup;
         // record scan
         final ParseResponse resp = await scan.save();
 

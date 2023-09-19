@@ -24,6 +24,7 @@ mixin _$ScanEvent {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$ScanEvent {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$ScanEvent {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$ScanEvent {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$ScanEvent {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$ScanEvent {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +146,7 @@ class _$_Started implements _Started {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) {
     return started();
   }
@@ -153,6 +160,7 @@ class _$_Started implements _Started {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) {
     return started?.call();
   }
@@ -166,6 +174,7 @@ class _$_Started implements _Started {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,6 +192,7 @@ class _$_Started implements _Started {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) {
     return started(this);
   }
@@ -196,6 +206,7 @@ class _$_Started implements _Started {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) {
     return started?.call(this);
   }
@@ -209,6 +220,7 @@ class _$_Started implements _Started {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -298,6 +310,7 @@ class _$_ScanDetected implements _ScanDetected {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) {
     return scanDetected(qr);
   }
@@ -311,6 +324,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) {
     return scanDetected?.call(qr);
   }
@@ -324,6 +338,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -341,6 +356,7 @@ class _$_ScanDetected implements _ScanDetected {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) {
     return scanDetected(this);
   }
@@ -354,6 +370,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) {
     return scanDetected?.call(this);
   }
@@ -367,6 +384,7 @@ class _$_ScanDetected implements _ScanDetected {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scanDetected != null) {
@@ -430,6 +448,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) {
     return scanConfirmed();
   }
@@ -443,6 +462,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) {
     return scanConfirmed?.call();
   }
@@ -456,6 +476,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scanConfirmed != null) {
@@ -473,6 +494,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) {
     return scanConfirmed(this);
   }
@@ -486,6 +508,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) {
     return scanConfirmed?.call(this);
   }
@@ -499,6 +522,7 @@ class _$_ScanConfirmed implements _ScanConfirmed {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scanConfirmed != null) {
@@ -556,6 +580,7 @@ class _$_ScanCancelled implements _ScanCancelled {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) {
     return scanCancelled();
   }
@@ -569,6 +594,7 @@ class _$_ScanCancelled implements _ScanCancelled {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) {
     return scanCancelled?.call();
   }
@@ -582,6 +608,7 @@ class _$_ScanCancelled implements _ScanCancelled {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scanCancelled != null) {
@@ -599,6 +626,7 @@ class _$_ScanCancelled implements _ScanCancelled {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) {
     return scanCancelled(this);
   }
@@ -612,6 +640,7 @@ class _$_ScanCancelled implements _ScanCancelled {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) {
     return scanCancelled?.call(this);
   }
@@ -625,6 +654,7 @@ class _$_ScanCancelled implements _ScanCancelled {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scanCancelled != null) {
@@ -708,6 +738,7 @@ class _$_SelfieTaken implements _SelfieTaken {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) {
     return selfieTaken(selfie);
   }
@@ -721,6 +752,7 @@ class _$_SelfieTaken implements _SelfieTaken {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) {
     return selfieTaken?.call(selfie);
   }
@@ -734,6 +766,7 @@ class _$_SelfieTaken implements _SelfieTaken {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (selfieTaken != null) {
@@ -751,6 +784,7 @@ class _$_SelfieTaken implements _SelfieTaken {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) {
     return selfieTaken(this);
   }
@@ -764,6 +798,7 @@ class _$_SelfieTaken implements _SelfieTaken {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) {
     return selfieTaken?.call(this);
   }
@@ -777,6 +812,7 @@ class _$_SelfieTaken implements _SelfieTaken {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (selfieTaken != null) {
@@ -865,6 +901,7 @@ class _$_ScannerStarted implements _ScannerStarted {
     required TResult Function() scanCancelled,
     required TResult Function(XFile? selfie) selfieTaken,
     required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
   }) {
     return scannerStatusChanged(status);
   }
@@ -878,6 +915,7 @@ class _$_ScannerStarted implements _ScannerStarted {
     TResult? Function()? scanCancelled,
     TResult? Function(XFile? selfie)? selfieTaken,
     TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
   }) {
     return scannerStatusChanged?.call(status);
   }
@@ -891,6 +929,7 @@ class _$_ScannerStarted implements _ScannerStarted {
     TResult Function()? scanCancelled,
     TResult Function(XFile? selfie)? selfieTaken,
     TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scannerStatusChanged != null) {
@@ -908,6 +947,7 @@ class _$_ScannerStarted implements _ScannerStarted {
     required TResult Function(_ScanCancelled value) scanCancelled,
     required TResult Function(_SelfieTaken value) selfieTaken,
     required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
   }) {
     return scannerStatusChanged(this);
   }
@@ -921,6 +961,7 @@ class _$_ScannerStarted implements _ScannerStarted {
     TResult? Function(_ScanCancelled value)? scanCancelled,
     TResult? Function(_SelfieTaken value)? selfieTaken,
     TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
   }) {
     return scannerStatusChanged?.call(this);
   }
@@ -934,6 +975,7 @@ class _$_ScannerStarted implements _ScannerStarted {
     TResult Function(_ScanCancelled value)? scanCancelled,
     TResult Function(_SelfieTaken value)? selfieTaken,
     TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
     required TResult orElse(),
   }) {
     if (scannerStatusChanged != null) {
@@ -954,12 +996,178 @@ abstract class _ScannerStarted implements ScanEvent {
 }
 
 /// @nodoc
+abstract class _$$_YearGroupChangedCopyWith<$Res> {
+  factory _$$_YearGroupChangedCopyWith(
+          _$_YearGroupChanged value, $Res Function(_$_YearGroupChanged) then) =
+      __$$_YearGroupChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? yearGroup});
+}
+
+/// @nodoc
+class __$$_YearGroupChangedCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$_YearGroupChanged>
+    implements _$$_YearGroupChangedCopyWith<$Res> {
+  __$$_YearGroupChangedCopyWithImpl(
+      _$_YearGroupChanged _value, $Res Function(_$_YearGroupChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? yearGroup = freezed,
+  }) {
+    return _then(_$_YearGroupChanged(
+      yearGroup: freezed == yearGroup
+          ? _value.yearGroup
+          : yearGroup // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_YearGroupChanged implements _YearGroupChanged {
+  const _$_YearGroupChanged({required this.yearGroup});
+
+  @override
+  final String? yearGroup;
+
+  @override
+  String toString() {
+    return 'ScanEvent.yearGroupChanged(yearGroup: $yearGroup)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_YearGroupChanged &&
+            (identical(other.yearGroup, yearGroup) ||
+                other.yearGroup == yearGroup));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, yearGroup);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_YearGroupChangedCopyWith<_$_YearGroupChanged> get copyWith =>
+      __$$_YearGroupChangedCopyWithImpl<_$_YearGroupChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Map<String, dynamic> qr) scanDetected,
+    required TResult Function() scanConfirmed,
+    required TResult Function() scanCancelled,
+    required TResult Function(XFile? selfie) selfieTaken,
+    required TResult Function(bool status) scannerStatusChanged,
+    required TResult Function(String? yearGroup) yearGroupChanged,
+  }) {
+    return yearGroupChanged(yearGroup);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Map<String, dynamic> qr)? scanDetected,
+    TResult? Function()? scanConfirmed,
+    TResult? Function()? scanCancelled,
+    TResult? Function(XFile? selfie)? selfieTaken,
+    TResult? Function(bool status)? scannerStatusChanged,
+    TResult? Function(String? yearGroup)? yearGroupChanged,
+  }) {
+    return yearGroupChanged?.call(yearGroup);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Map<String, dynamic> qr)? scanDetected,
+    TResult Function()? scanConfirmed,
+    TResult Function()? scanCancelled,
+    TResult Function(XFile? selfie)? selfieTaken,
+    TResult Function(bool status)? scannerStatusChanged,
+    TResult Function(String? yearGroup)? yearGroupChanged,
+    required TResult orElse(),
+  }) {
+    if (yearGroupChanged != null) {
+      return yearGroupChanged(yearGroup);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_ScanDetected value) scanDetected,
+    required TResult Function(_ScanConfirmed value) scanConfirmed,
+    required TResult Function(_ScanCancelled value) scanCancelled,
+    required TResult Function(_SelfieTaken value) selfieTaken,
+    required TResult Function(_ScannerStarted value) scannerStatusChanged,
+    required TResult Function(_YearGroupChanged value) yearGroupChanged,
+  }) {
+    return yearGroupChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_ScanDetected value)? scanDetected,
+    TResult? Function(_ScanConfirmed value)? scanConfirmed,
+    TResult? Function(_ScanCancelled value)? scanCancelled,
+    TResult? Function(_SelfieTaken value)? selfieTaken,
+    TResult? Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult? Function(_YearGroupChanged value)? yearGroupChanged,
+  }) {
+    return yearGroupChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_ScanDetected value)? scanDetected,
+    TResult Function(_ScanConfirmed value)? scanConfirmed,
+    TResult Function(_ScanCancelled value)? scanCancelled,
+    TResult Function(_SelfieTaken value)? selfieTaken,
+    TResult Function(_ScannerStarted value)? scannerStatusChanged,
+    TResult Function(_YearGroupChanged value)? yearGroupChanged,
+    required TResult orElse(),
+  }) {
+    if (yearGroupChanged != null) {
+      return yearGroupChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _YearGroupChanged implements ScanEvent {
+  const factory _YearGroupChanged({required final String? yearGroup}) =
+      _$_YearGroupChanged;
+
+  String? get yearGroup;
+  @JsonKey(ignore: true)
+  _$$_YearGroupChangedCopyWith<_$_YearGroupChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ScanState {
   bool get isScanning => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get hasTakenSelfie => throw _privateConstructorUsedError;
   bool get isConfirming => throw _privateConstructorUsedError;
   bool get scannerStatus => throw _privateConstructorUsedError;
+  String? get yearGroup => throw _privateConstructorUsedError;
   DateTime? get scannedAt => throw _privateConstructorUsedError;
   Map<String, dynamic>? get qr => throw _privateConstructorUsedError;
   XFile? get selfie => throw _privateConstructorUsedError;
@@ -983,6 +1191,7 @@ abstract class $ScanStateCopyWith<$Res> {
       bool hasTakenSelfie,
       bool isConfirming,
       bool scannerStatus,
+      String? yearGroup,
       DateTime? scannedAt,
       Map<String, dynamic>? qr,
       XFile? selfie,
@@ -1008,6 +1217,7 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
     Object? hasTakenSelfie = null,
     Object? isConfirming = null,
     Object? scannerStatus = null,
+    Object? yearGroup = freezed,
     Object? scannedAt = freezed,
     Object? qr = freezed,
     Object? selfie = freezed,
@@ -1035,6 +1245,10 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
           ? _value.scannerStatus
           : scannerStatus // ignore: cast_nullable_to_non_nullable
               as bool,
+      yearGroup: freezed == yearGroup
+          ? _value.yearGroup
+          : yearGroup // ignore: cast_nullable_to_non_nullable
+              as String?,
       scannedAt: freezed == scannedAt
           ? _value.scannedAt
           : scannedAt // ignore: cast_nullable_to_non_nullable
@@ -1072,6 +1286,7 @@ abstract class _$$_ScanStateCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
       bool hasTakenSelfie,
       bool isConfirming,
       bool scannerStatus,
+      String? yearGroup,
       DateTime? scannedAt,
       Map<String, dynamic>? qr,
       XFile? selfie,
@@ -1095,6 +1310,7 @@ class __$$_ScanStateCopyWithImpl<$Res>
     Object? hasTakenSelfie = null,
     Object? isConfirming = null,
     Object? scannerStatus = null,
+    Object? yearGroup = freezed,
     Object? scannedAt = freezed,
     Object? qr = freezed,
     Object? selfie = freezed,
@@ -1122,6 +1338,10 @@ class __$$_ScanStateCopyWithImpl<$Res>
           ? _value.scannerStatus
           : scannerStatus // ignore: cast_nullable_to_non_nullable
               as bool,
+      yearGroup: freezed == yearGroup
+          ? _value.yearGroup
+          : yearGroup // ignore: cast_nullable_to_non_nullable
+              as String?,
       scannedAt: freezed == scannedAt
           ? _value.scannedAt
           : scannedAt // ignore: cast_nullable_to_non_nullable
@@ -1155,6 +1375,7 @@ class _$_ScanState implements _ScanState {
       required this.hasTakenSelfie,
       required this.isConfirming,
       required this.scannerStatus,
+      required this.yearGroup,
       this.scannedAt,
       final Map<String, dynamic>? qr,
       this.selfie,
@@ -1172,6 +1393,8 @@ class _$_ScanState implements _ScanState {
   final bool isConfirming;
   @override
   final bool scannerStatus;
+  @override
+  final String? yearGroup;
   @override
   final DateTime? scannedAt;
   final Map<String, dynamic>? _qr;
@@ -1193,7 +1416,7 @@ class _$_ScanState implements _ScanState {
 
   @override
   String toString() {
-    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, hasTakenSelfie: $hasTakenSelfie, isConfirming: $isConfirming, scannerStatus: $scannerStatus, scannedAt: $scannedAt, qr: $qr, selfie: $selfie, eventOption: $eventOption, failureOrScanOption: $failureOrScanOption)';
+    return 'ScanState(isScanning: $isScanning, isLoading: $isLoading, hasTakenSelfie: $hasTakenSelfie, isConfirming: $isConfirming, scannerStatus: $scannerStatus, yearGroup: $yearGroup, scannedAt: $scannedAt, qr: $qr, selfie: $selfie, eventOption: $eventOption, failureOrScanOption: $failureOrScanOption)';
   }
 
   @override
@@ -1211,6 +1434,8 @@ class _$_ScanState implements _ScanState {
                 other.isConfirming == isConfirming) &&
             (identical(other.scannerStatus, scannerStatus) ||
                 other.scannerStatus == scannerStatus) &&
+            (identical(other.yearGroup, yearGroup) ||
+                other.yearGroup == yearGroup) &&
             (identical(other.scannedAt, scannedAt) ||
                 other.scannedAt == scannedAt) &&
             const DeepCollectionEquality().equals(other._qr, _qr) &&
@@ -1229,6 +1454,7 @@ class _$_ScanState implements _ScanState {
       hasTakenSelfie,
       isConfirming,
       scannerStatus,
+      yearGroup,
       scannedAt,
       const DeepCollectionEquality().hash(_qr),
       selfie,
@@ -1249,6 +1475,7 @@ abstract class _ScanState implements ScanState {
       required final bool hasTakenSelfie,
       required final bool isConfirming,
       required final bool scannerStatus,
+      required final String? yearGroup,
       final DateTime? scannedAt,
       final Map<String, dynamic>? qr,
       final XFile? selfie,
@@ -1266,6 +1493,8 @@ abstract class _ScanState implements ScanState {
   bool get isConfirming;
   @override
   bool get scannerStatus;
+  @override
+  String? get yearGroup;
   @override
   DateTime? get scannedAt;
   @override

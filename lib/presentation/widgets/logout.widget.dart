@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:lecturer/application/auth/auth/auth_bloc.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/presentation/navigation/autoroute.gr.dart';
 import 'package:lecturer/presentation/widgets/button.widget.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class LogoutWidget extends StatelessWidget {
   const LogoutWidget({Key? key}) : super(key: key);
@@ -47,14 +47,14 @@ class LogoutWidget extends StatelessWidget {
                   ButtonWidget(
                     isLoading: false,
                     label: "Cancel",
-                    widthFactor: 0.35,
+                    widthFactor: 0.4,
                     onTap: state.isLoading ? null : () => context.router.pop(),
                   ),
                   const SizedBox(width: 16),
                   ButtonWidget(
                     isLoading: state.isLoading,
                     label: "Yes, logout",
-                    widthFactor: 0.35,
+                    widthFactor: 0.4,
                     onTap: () {
                       // Logout
                       getIt<AuthBloc>().add(const AuthEvent.loggedOut());

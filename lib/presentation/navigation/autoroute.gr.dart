@@ -14,10 +14,10 @@ import 'package:lecturer/application/attendance/attendance/attendance_bloc.dart'
     as _i8;
 import 'package:lecturer/presentation/pages/attendance/attendance.page.dart'
     as _i1;
-import 'package:lecturer/presentation/pages/attendance/scan.page.dart' as _i2;
+import 'package:lecturer/presentation/pages/attendance/scan.page.dart' as _i5;
 import 'package:lecturer/presentation/pages/auth/login.page.dart' as _i3;
-import 'package:lecturer/presentation/pages/index.page.dart' as _i4;
-import 'package:lecturer/presentation/pages/profile/profile.page.dart' as _i5;
+import 'package:lecturer/presentation/pages/index.page.dart' as _i2;
+import 'package:lecturer/presentation/pages/profile/profile.page.dart' as _i4;
 
 abstract class $AppRouter extends _i6.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -30,15 +30,10 @@ abstract class $AppRouter extends _i6.RootStackRouter {
         child: _i6.WrappedRoute(child: const _i1.AttendancePage()),
       );
     },
-    ScanRoute.name: (routeData) {
-      final args = routeData.argsAs<ScanRouteArgs>();
+    IndexRoute.name: (routeData) {
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.WrappedRoute(
-            child: _i2.ScanPage(
-          key: args.key,
-          attendanceBloc: args.attendanceBloc,
-        )),
+        child: const _i2.IndexPage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -49,18 +44,23 @@ abstract class $AppRouter extends _i6.RootStackRouter {
         child: _i6.WrappedRoute(child: _i3.LoginPage(key: args.key)),
       );
     },
-    IndexRoute.name: (routeData) {
-      return _i6.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i4.IndexPage(),
-      );
-    },
     ProfileRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileRouteArgs>(
           orElse: () => const ProfileRouteArgs());
       return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i6.WrappedRoute(child: _i5.ProfilePage(key: args.key)),
+        child: _i6.WrappedRoute(child: _i4.ProfilePage(key: args.key)),
+      );
+    },
+    ScanRoute.name: (routeData) {
+      final args = routeData.argsAs<ScanRouteArgs>();
+      return _i6.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i6.WrappedRoute(
+            child: _i5.ScanPage(
+          key: args.key,
+          attendanceBloc: args.attendanceBloc,
+        )),
       );
     },
   };
@@ -81,7 +81,79 @@ class AttendanceRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.ScanPage]
+/// [_i2.IndexPage]
+class IndexRoute extends _i6.PageRouteInfo<void> {
+  const IndexRoute({List<_i6.PageRouteInfo>? children})
+      : super(
+          IndexRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'IndexRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.LoginPage]
+class LoginRoute extends _i6.PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
+    _i7.Key? key,
+    List<_i6.PageRouteInfo>? children,
+  }) : super(
+          LoginRoute.name,
+          args: LoginRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const _i6.PageInfo<LoginRouteArgs> page =
+      _i6.PageInfo<LoginRouteArgs>(name);
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key});
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [_i4.ProfilePage]
+class ProfileRoute extends _i6.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    _i7.Key? key,
+    List<_i6.PageRouteInfo>? children,
+  }) : super(
+          ProfileRoute.name,
+          args: ProfileRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const _i6.PageInfo<ProfileRouteArgs> page =
+      _i6.PageInfo<ProfileRouteArgs>(name);
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({this.key});
+
+  final _i7.Key? key;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [_i5.ScanPage]
 class ScanRoute extends _i6.PageRouteInfo<ScanRouteArgs> {
   ScanRoute({
     _i7.Key? key,
@@ -115,77 +187,5 @@ class ScanRouteArgs {
   @override
   String toString() {
     return 'ScanRouteArgs{key: $key, attendanceBloc: $attendanceBloc}';
-  }
-}
-
-/// generated route for
-/// [_i3.LoginPage]
-class LoginRoute extends _i6.PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
-    _i7.Key? key,
-    List<_i6.PageRouteInfo>? children,
-  }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'LoginRoute';
-
-  static const _i6.PageInfo<LoginRouteArgs> page =
-      _i6.PageInfo<LoginRouteArgs>(name);
-}
-
-class LoginRouteArgs {
-  const LoginRouteArgs({this.key});
-
-  final _i7.Key? key;
-
-  @override
-  String toString() {
-    return 'LoginRouteArgs{key: $key}';
-  }
-}
-
-/// generated route for
-/// [_i4.IndexPage]
-class IndexRoute extends _i6.PageRouteInfo<void> {
-  const IndexRoute({List<_i6.PageRouteInfo>? children})
-      : super(
-          IndexRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'IndexRoute';
-
-  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i5.ProfilePage]
-class ProfileRoute extends _i6.PageRouteInfo<ProfileRouteArgs> {
-  ProfileRoute({
-    _i7.Key? key,
-    List<_i6.PageRouteInfo>? children,
-  }) : super(
-          ProfileRoute.name,
-          args: ProfileRouteArgs(key: key),
-          initialChildren: children,
-        );
-
-  static const String name = 'ProfileRoute';
-
-  static const _i6.PageInfo<ProfileRouteArgs> page =
-      _i6.PageInfo<ProfileRouteArgs>(name);
-}
-
-class ProfileRouteArgs {
-  const ProfileRouteArgs({this.key});
-
-  final _i7.Key? key;
-
-  @override
-  String toString() {
-    return 'ProfileRouteArgs{key: $key}';
   }
 }

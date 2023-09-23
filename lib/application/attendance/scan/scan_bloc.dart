@@ -96,51 +96,31 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
           // 2. Student is in a class the event is valid for
           final selectedYearGroup = YearGroupObject()
             ..objectId = state.yearGroup;
-          final bool isValid = isValidScan(
-            event: event,
-          );
 
-          if (isValid) {
-            if (state.qr!["type"] == "IN") {
-              final failureOrScan = await _scanFacade.scanIn(
-                event: event,
-                dateTime: state.scannedAt!,
-                selfiePath: state.selfie!.path,
-                yearGroup: selectedYearGroup,
-              );
+          if (state.qr!["type"] == "IN") {
+            final failureOrScan = await _scanFacade.scanIn(
+              event: event,
+              dateTime: state.scannedAt!,
+              selfiePath: state.selfie!.path,
+              yearGroup: selectedYearGroup,
+            );
 
-              emit(state.copyWith(
-                isLoading: false,
-                isConfirming: false,
-                failureOrScanOption: some(failureOrScan),
-              ));
-            } else if (state.qr!["type"] == "OUT") {
-              final failureOrScan = await _scanFacade.scanOut(
-                event: event,
-                dateTime: state.scannedAt!,
-              );
+            emit(state.copyWith(
+              isLoading: false,
+              isConfirming: false,
+              failureOrScanOption: some(failureOrScan),
+            ));
+          } else if (state.qr!["type"] == "OUT") {
+            final failureOrScan = await _scanFacade.scanOut(
+              event: event,
+              dateTime: state.scannedAt!,
+            );
 
-              emit(state.copyWith(
-                isLoading: false,
-                isConfirming: false,
-                failureOrScanOption: some(failureOrScan),
-              ));
-            } else {
-              emit(
-                state.copyWith(
-                  isLoading: false,
-                  isScanning: true,
-                  isConfirming: false,
-                  failureOrScanOption: some(
-                    const Left(
-                      ScanFailure.invalidScanError(
-                        message: "QR code is invalid. No 'type' found.",
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }
+            emit(state.copyWith(
+              isLoading: false,
+              isConfirming: false,
+              failureOrScanOption: some(failureOrScan),
+            ));
           } else {
             emit(
               state.copyWith(
@@ -150,7 +130,7 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
                 failureOrScanOption: some(
                   const Left(
                     ScanFailure.invalidScanError(
-                      message: "You're not permitted to scan for this event.",
+                      message: "QR code is invalid. No 'type' found.",
                     ),
                   ),
                 ),
@@ -186,27 +166,5 @@ class ScanBloc extends Bloc<ScanEvent, ScanState> {
     final scanDateTime = DateTime(scanDate.year, scanDate.month, scanDate.day);
 
     return scanDateTime == today;
-  }
-
-  bool isStudentInCorrectClass({
-    required YearGroupObject studentYearGroup,
-    List<YearGroupObject>? allowedYearGroups,
-  }) {
-    bool studentInCorrectClass = true;
-
-    if (allowedYearGroups != null) {
-      studentInCorrectClass = allowedYearGroups.contains(studentYearGroup);
-    }
-
-    return studentInCorrectClass;
-  }
-
-  bool isValidScan({
-    required EventObject event,
-  }) {
-    // Check if scan day is day of event
-    final sameDay = Moment.now().isAtSameDayAs(event.startsAt!);
-
-    return true;
   }
 }

@@ -21,7 +21,9 @@ class ScanWidget extends StatelessWidget {
       child: ListTile(
         tileColor: Theme.of(context).colorScheme.background,
         title: Text(
-          Moment(scan.scannedInAt!).formatDateWithWeekdayShort(),
+          scan.scannedInAt != null
+              ? Moment(scan.scannedInAt!).formatDateWithWeekdayShort()
+              : "Didn't scan in",
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
@@ -43,12 +45,13 @@ class ScanWidget extends StatelessWidget {
                   const Spacer(),
                   const Text(" - "),
                   const Spacer(),
-                  Text(
-                    Moment(scan.scannedInAt!).formatTimeWithSeconds(),
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                  ),
+                  if (scan.scannedInAt != null)
+                    Text(
+                      Moment(scan.scannedInAt!).formatTimeWithSeconds(),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                    ),
                   const Spacer(),
                   Icon(
                     hasScannedIn(scan: scan)

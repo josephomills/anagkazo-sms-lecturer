@@ -107,13 +107,13 @@ class ScanRepo implements ScanFacade {
           return Right(scanObj);
         } else {
           return Left(
-              ScanFailure.serverError(message: scanResp.error!.message));
+            ScanFailure.serverError(message: scanResp.error!.message),
+          );
         }
       }
     } else {
-      // No scan at all: means student was late
-      // CreateScan object
-
+      // No scan at all: means lecturer was late
+      // Create Scan object
       final scan = ScanObject()
         ..user = user
         ..event = event
@@ -158,9 +158,14 @@ class ScanRepo implements ScanFacade {
       } else {
         // already scanned
         final ScanObject scanObject = resp.results!.first as ScanObject;
-        // only returned scans from the same day
-        if (Moment(scanObject.scannedInAt!).isAtSameDayAs(dateTime)) {
-          return Right(some(scanObject));
+
+        // only return scans from the same day
+        if (scanObject.scannedInAt != null) {
+          return Right(
+            Moment(scanObject.scannedInAt!).isAtSameDayAs(dateTime)
+                ? some(scanObject)
+                : none(),
+          );
         } else {
           return Right(none());
         }

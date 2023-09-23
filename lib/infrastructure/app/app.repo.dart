@@ -20,7 +20,8 @@ class AppRepo implements AppFacade {
 
   @override
   Future<Either<AppFailure, List<YearGroupObject>>> getAllYearGroups() async {
-    var query = QueryBuilder(YearGroupObject());
+    var query = QueryBuilder(YearGroupObject())
+      ..orderByAscending(YearGroupObject.kName);
     final resp = await query.query();
     if (resp.success) {
       // convert results to year group objects

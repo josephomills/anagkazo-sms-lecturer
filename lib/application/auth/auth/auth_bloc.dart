@@ -23,18 +23,29 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await event.map<FutureOr<void>>(
         loggedIn: (e) async {
           // Get current user (from event)
-          emit(state.copyWith(currentUserOption: some(e.user)));
+          emit(state.copyWith(
+            currentUserOption: some(e.user),
+            failureOrUnitOption: none(),
+          ));
         },
         loggedOut: (e) async {
           emit(state.copyWith(isLoading: true));
-          final failureOrUnitOption = await _authFacade.logout();
+          final failureOrUnit = await _authFacade.logout();
 
           emit(state.copyWith(
-            currentUserOption: failureOrUnitOption.isRight()
-                ? none()
-                : state.currentUserOption,
+            currentUserOption:
+                failureOrUnit.isRight() ? none() : state.currentUserOption,
             isLoading: false,
-            failureOrUnitOption: some(failureOrUnitOption),
+            failureOrUnitOption: some(failureOrUnit),
+          ));
+        },
+        passwordResetInitiated: (e) async {
+          emit(state.copyWith(isLoading: true));
+          final failureOrUnit =
+              await _authFacade.sendPasswordResetLink(email: e.email);
+          emit(state.copyWith(
+            isLoading: false,
+            failureOrUnitOption: some(failureOrUnit),
           ));
         },
       );

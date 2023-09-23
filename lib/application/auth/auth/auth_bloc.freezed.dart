@@ -20,18 +20,21 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(ParseUser user) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function(String email) passwordResetInitiated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParseUser user)? loggedIn,
     TResult? Function()? loggedOut,
+    TResult? Function(String email)? passwordResetInitiated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParseUser user)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function(String email)? passwordResetInitiated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,22 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LoggedIn value) loggedIn,
     required TResult Function(LoggedOut value) loggedOut,
+    required TResult Function(_PasswordResetInitiated value)
+        passwordResetInitiated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoggedIn value)? loggedIn,
     TResult? Function(LoggedOut value)? loggedOut,
+    TResult? Function(_PasswordResetInitiated value)? passwordResetInitiated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoggedIn value)? loggedIn,
     TResult Function(LoggedOut value)? loggedOut,
+    TResult Function(_PasswordResetInitiated value)? passwordResetInitiated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +145,7 @@ class _$LoggedIn implements LoggedIn {
   TResult when<TResult extends Object?>({
     required TResult Function(ParseUser user) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function(String email) passwordResetInitiated,
   }) {
     return loggedIn(user);
   }
@@ -147,6 +155,7 @@ class _$LoggedIn implements LoggedIn {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParseUser user)? loggedIn,
     TResult? Function()? loggedOut,
+    TResult? Function(String email)? passwordResetInitiated,
   }) {
     return loggedIn?.call(user);
   }
@@ -156,6 +165,7 @@ class _$LoggedIn implements LoggedIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParseUser user)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function(String email)? passwordResetInitiated,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -169,6 +179,8 @@ class _$LoggedIn implements LoggedIn {
   TResult map<TResult extends Object?>({
     required TResult Function(LoggedIn value) loggedIn,
     required TResult Function(LoggedOut value) loggedOut,
+    required TResult Function(_PasswordResetInitiated value)
+        passwordResetInitiated,
   }) {
     return loggedIn(this);
   }
@@ -178,6 +190,7 @@ class _$LoggedIn implements LoggedIn {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoggedIn value)? loggedIn,
     TResult? Function(LoggedOut value)? loggedOut,
+    TResult? Function(_PasswordResetInitiated value)? passwordResetInitiated,
   }) {
     return loggedIn?.call(this);
   }
@@ -187,6 +200,7 @@ class _$LoggedIn implements LoggedIn {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoggedIn value)? loggedIn,
     TResult Function(LoggedOut value)? loggedOut,
+    TResult Function(_PasswordResetInitiated value)? passwordResetInitiated,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -245,6 +259,7 @@ class _$LoggedOut implements LoggedOut {
   TResult when<TResult extends Object?>({
     required TResult Function(ParseUser user) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function(String email) passwordResetInitiated,
   }) {
     return loggedOut();
   }
@@ -254,6 +269,7 @@ class _$LoggedOut implements LoggedOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParseUser user)? loggedIn,
     TResult? Function()? loggedOut,
+    TResult? Function(String email)? passwordResetInitiated,
   }) {
     return loggedOut?.call();
   }
@@ -263,6 +279,7 @@ class _$LoggedOut implements LoggedOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParseUser user)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function(String email)? passwordResetInitiated,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -276,6 +293,8 @@ class _$LoggedOut implements LoggedOut {
   TResult map<TResult extends Object?>({
     required TResult Function(LoggedIn value) loggedIn,
     required TResult Function(LoggedOut value) loggedOut,
+    required TResult Function(_PasswordResetInitiated value)
+        passwordResetInitiated,
   }) {
     return loggedOut(this);
   }
@@ -285,6 +304,7 @@ class _$LoggedOut implements LoggedOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoggedIn value)? loggedIn,
     TResult? Function(LoggedOut value)? loggedOut,
+    TResult? Function(_PasswordResetInitiated value)? passwordResetInitiated,
   }) {
     return loggedOut?.call(this);
   }
@@ -294,6 +314,7 @@ class _$LoggedOut implements LoggedOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoggedIn value)? loggedIn,
     TResult Function(LoggedOut value)? loggedOut,
+    TResult Function(_PasswordResetInitiated value)? passwordResetInitiated,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -305,6 +326,148 @@ class _$LoggedOut implements LoggedOut {
 
 abstract class LoggedOut implements AuthEvent {
   const factory LoggedOut() = _$LoggedOut;
+}
+
+/// @nodoc
+abstract class _$$_PasswordResetInitiatedCopyWith<$Res> {
+  factory _$$_PasswordResetInitiatedCopyWith(_$_PasswordResetInitiated value,
+          $Res Function(_$_PasswordResetInitiated) then) =
+      __$$_PasswordResetInitiatedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email});
+}
+
+/// @nodoc
+class __$$_PasswordResetInitiatedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_PasswordResetInitiated>
+    implements _$$_PasswordResetInitiatedCopyWith<$Res> {
+  __$$_PasswordResetInitiatedCopyWithImpl(_$_PasswordResetInitiated _value,
+      $Res Function(_$_PasswordResetInitiated) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+  }) {
+    return _then(_$_PasswordResetInitiated(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PasswordResetInitiated implements _PasswordResetInitiated {
+  const _$_PasswordResetInitiated({required this.email});
+
+  @override
+  final String email;
+
+  @override
+  String toString() {
+    return 'AuthEvent.passwordResetInitiated(email: $email)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PasswordResetInitiated &&
+            (identical(other.email, email) || other.email == email));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PasswordResetInitiatedCopyWith<_$_PasswordResetInitiated> get copyWith =>
+      __$$_PasswordResetInitiatedCopyWithImpl<_$_PasswordResetInitiated>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ParseUser user) loggedIn,
+    required TResult Function() loggedOut,
+    required TResult Function(String email) passwordResetInitiated,
+  }) {
+    return passwordResetInitiated(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ParseUser user)? loggedIn,
+    TResult? Function()? loggedOut,
+    TResult? Function(String email)? passwordResetInitiated,
+  }) {
+    return passwordResetInitiated?.call(email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ParseUser user)? loggedIn,
+    TResult Function()? loggedOut,
+    TResult Function(String email)? passwordResetInitiated,
+    required TResult orElse(),
+  }) {
+    if (passwordResetInitiated != null) {
+      return passwordResetInitiated(email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoggedIn value) loggedIn,
+    required TResult Function(LoggedOut value) loggedOut,
+    required TResult Function(_PasswordResetInitiated value)
+        passwordResetInitiated,
+  }) {
+    return passwordResetInitiated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoggedIn value)? loggedIn,
+    TResult? Function(LoggedOut value)? loggedOut,
+    TResult? Function(_PasswordResetInitiated value)? passwordResetInitiated,
+  }) {
+    return passwordResetInitiated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoggedIn value)? loggedIn,
+    TResult Function(LoggedOut value)? loggedOut,
+    TResult Function(_PasswordResetInitiated value)? passwordResetInitiated,
+    required TResult orElse(),
+  }) {
+    if (passwordResetInitiated != null) {
+      return passwordResetInitiated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PasswordResetInitiated implements AuthEvent {
+  const factory _PasswordResetInitiated({required final String email}) =
+      _$_PasswordResetInitiated;
+
+  String get email;
+  @JsonKey(ignore: true)
+  _$$_PasswordResetInitiatedCopyWith<_$_PasswordResetInitiated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

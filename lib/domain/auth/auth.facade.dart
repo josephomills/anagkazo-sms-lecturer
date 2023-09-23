@@ -15,4 +15,6 @@ abstract class AuthFacade {
   Future<Either<AuthFailure, ParseUser>> updateUser(
       {required UserModel userData});
   Future<bool> hasUserLoggedIn();
+  Future<Either<AuthFailure, Unit>> sendPasswordResetLink(
+      {required String email});
 }

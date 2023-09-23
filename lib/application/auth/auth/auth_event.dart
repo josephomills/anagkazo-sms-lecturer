@@ -10,4 +10,7 @@ class AuthEvent with _$AuthEvent {
 
   /// Event fired when user logs out.
   const factory AuthEvent.loggedOut() = LoggedOut;
+
+  const factory AuthEvent.passwordResetInitiated({required String email}) =
+      _PasswordResetInitiated;
 }

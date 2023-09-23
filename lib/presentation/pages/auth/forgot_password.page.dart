@@ -1,19 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lecturer/application/auth/login/login_bloc.dart';
+import 'package:lecturer/application/auth/auth/auth_bloc.dart';
+import 'package:lecturer/application/auth/forgot_password/forgot_password_bloc.dart';
 import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/domain/core/util/util.dart';
 import 'package:lecturer/domain/core/util/validator.dart';
-import 'package:lecturer/presentation/navigation/autoroute.gr.dart';
 import 'package:lecturer/presentation/widgets/button.widget.dart';
 import 'package:lecturer/presentation/widgets/snackbar.widget.dart';
 import 'package:lecturer/presentation/widgets/text_form_field.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget implements AutoRouteWrapper {
-  LoginPage({Key? key}) : super(key: key);
+class ForgotPasswordPage extends StatelessWidget implements AutoRouteWrapper {
+  ForgotPasswordPage({super.key});
 
   final _formKey = getIt<GlobalKey<FormState>>();
 
@@ -23,9 +23,9 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
       child: Scaffold(
         body: GestureDetector(
           onTap: () => unfocus(context),
-          child: BlocConsumer<LoginBloc, LoginState>(
+          child: BlocConsumer<ForgotPasswordBloc, ForgotPasswordState>(
             listener: (context, state) {
-              state.authFailureOrSuccessOption.fold(
+              state.failureOrUnitOption.fold(
                   () {}, // do nothing for none()
                   (either) => either.fold((f) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -34,16 +34,20 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                             type: SnackBarType.error,
                             text: f.maybeMap(
                               serverError: (e) => e.message!,
-                              invalidUsernameAndPasswordCombination: (e) =>
-                                  "Please enter a valid username & password combination.",
-                              sessionMissing: (e) => "Session missing",
                               orElse: () =>
                                   "Something went wrong. Please try again.",
                             ),
                           ),
                         );
-                      }, (user) {
-                        context.router.replaceAll([const IndexRoute()]);
+                      }, (unit) {
+                        // Go back
+                        context.router.pop();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          snackBarWidget(
+                            text: "Password reset instructions sent to email!",
+                            context: context,
+                          ),
+                        );
                       }));
             },
             builder: (context, state) {
@@ -56,54 +60,37 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                   physics: const ClampingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 32),
                   children: [
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 80),
                     Image.asset(
-                      "assets/icon/lecturer_login.png",
-                      height: 240,
+                      "assets/icon/logo.png",
+                      height: 160,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 8),
+                    Text(
+                      "Forgot Password",
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    const SizedBox(height: 60),
                     TextFormFieldWidget(
                       text: state.email,
                       label: "Email",
                       validator: getIt<Validator>().validateEmail,
                       onChanged: (text) => context
-                          .read<LoginBloc>()
+                          .read<ForgotPasswordBloc>()
                           .add(EmailChanged(email: text)),
                       suffixIcon: const Icon(LineAwesomeIcons.at),
                       hint: "What is your email?",
                     ),
-                    const SizedBox(height: 16),
-                    TextFormFieldWidget(
-                      text: state.password,
-                      label: "Password",
-                      validator: getIt<Validator>().validatePassword,
-                      onChanged: (text) => context
-                          .read<LoginBloc>()
-                          .add(PasswordChanged(password: text)),
-                      suffixIcon: const Icon(LineAwesomeIcons.lock),
-                      hint: "What is your password?",
-                      obscureText: true,
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () =>
-                              context.router.push(ForgotPasswordRoute()),
-                          child: const Text("Forgot Password?"),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 40),
                     ButtonWidget(
                       onTap: () {
                         unfocus(context);
-                        BlocProvider.of<LoginBloc>(context)
-                            .add(LoginButtonPressed(formKey: _formKey));
+                        BlocProvider.of<ForgotPasswordBloc>(context)
+                            .add(SendLinkButtonPressed(formKey: _formKey));
                       },
                       isLoading: state.isLoading,
-                      label: "Login",
+                      label: "Send Password Reset Link",
                       widthFactor: 0.8,
                     ),
                   ],
@@ -118,8 +105,8 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget wrappedRoute(BuildContext context) {
-    return BlocProvider<LoginBloc>(
-      create: (context) => getIt<LoginBloc>(),
+    return BlocProvider<ForgotPasswordBloc>(
+      create: (context) => getIt<ForgotPasswordBloc>(),
       child: this,
     );
   }

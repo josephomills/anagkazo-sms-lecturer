@@ -128,4 +128,20 @@ class AuthRepo implements AuthFacade {
 
     return hasUserLoggedIn;
   }
+
+  @override
+  Future<Either<AuthFailure, Unit>> sendPasswordResetLink(
+      {required String email}) async {
+    final user = ParseUser(null, null, email);
+    final parseResponse = await user.requestPasswordReset();
+    if (parseResponse.success) {
+      return const Right(unit);
+    } else {
+      return Left(
+        AuthFailure.serverError(
+            message: parseResponse.error?.message ??
+                "Error: Password reset link not sent."),
+      );
+    }
+  }
 }

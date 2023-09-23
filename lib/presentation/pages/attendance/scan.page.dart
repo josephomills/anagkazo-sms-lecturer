@@ -93,20 +93,7 @@ class _ScanPageState extends State<ScanPage>
               child: const ScanConfirmationWidget(),
             ),
           ).whenComplete(() {
-            // if (state.scannerStatus == false) {
-            //   try {
-            //     _scannerCtrl.start();
-            //     context
-            //         .read<ScanBloc>()
-            //         .add(const ScanEvent.scannerStatusChanged(status: true));
-            //   } on MobileScannerException catch (e) {
-            //     print(e.errorDetails!.message);
-            //   } catch (e) {
-            //     print(e);
-            //   }
-            // }
-
-            // Do something when modal is closed
+            // clear state values
             context.read<ScanBloc>().add(const ScanEvent.started());
           });
         }
@@ -131,11 +118,6 @@ class _ScanPageState extends State<ScanPage>
               // Scan camera view
               MobileScanner(
                 controller: _scannerCtrl,
-                // onScannerStarted: (arguments) {
-                //   context
-                //       .read<ScanBloc>()
-                //       .add(const ScanEvent.scannerStatusChanged(status: true));
-                // },
                 onDetect: (capture) {
                   if (capture.barcodes.isNotEmpty) {
                     // Example payload
@@ -151,11 +133,6 @@ class _ScanPageState extends State<ScanPage>
                       context
                           .read<ScanBloc>()
                           .add(ScanEvent.scanDetected(qr: map));
-
-                      // Workaround to avoid duplicate scans
-                      // _scannerCtrl.stop();
-                      // context.read<ScanBloc>().add(
-                      //     const ScanEvent.scannerStatusChanged(status: false));
                     }
                   }
                 },
@@ -167,7 +144,8 @@ class _ScanPageState extends State<ScanPage>
                 animation: _animationCtrl,
               ),
               // Loading spinner
-              if (state.isLoading) const LoaderWidget()
+              if (state.isLoading && !state.isConfirming)
+                const LoaderWidget(transparent: false)
             ],
           ),
         );

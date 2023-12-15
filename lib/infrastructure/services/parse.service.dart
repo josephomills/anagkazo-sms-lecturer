@@ -12,7 +12,7 @@ Future<void> initParse() async {
     dotenv.get("SERVER_URL"),
     clientKey: dotenv.get("CLIENT_KEY"),
     debug: true,
-    coreStore: await CoreStoreSembast.getInstance(),
+    coreStore: await CoreStoreSembastImp.getInstance(),
     liveQueryUrl: dotenv.get("LIVE_QUERY_URL"),
     registeredSubClassMap: {
       "YearGroup": () => YearGroupObject(),

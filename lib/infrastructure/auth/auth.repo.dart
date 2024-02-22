@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 import 'package:lecturer/application/auth/auth/auth_bloc.dart';
 import 'package:lecturer/domain/auth/auth.facade.dart';
 import 'package:lecturer/domain/auth/auth.failure.dart';
@@ -8,6 +7,7 @@ import 'package:lecturer/domain/core/config/injectable.core.dart';
 import 'package:lecturer/infrastructure/auth/dto/login.dto.dart';
 import 'package:lecturer/infrastructure/auth/dto/register.dto.dart';
 import 'package:lecturer/infrastructure/auth/models/user.model.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
 
 @Injectable(as: AuthFacade)
 class AuthRepo implements AuthFacade {
@@ -42,10 +42,12 @@ class AuthRepo implements AuthFacade {
   Future<Either<AuthFailure, Unit>> registerWithUsernameAndPassword(
       {required RegisterDTO registerDTO}) async {
     final user = ParseUser.createUser(
-      registerDTO.username,
+      registerDTO.email,
       registerDTO.password,
       registerDTO.email,
     );
+    user.set("firstname", registerDTO.firstname);
+    user.set("lastname", registerDTO.lastname);
     final response = await user.signUp(allowWithoutEmail: true);
     if (response.success) {
       // successful sign up

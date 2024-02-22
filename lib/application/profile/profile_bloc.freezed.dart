@@ -81,24 +81,25 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$StartedImpl implements _Started {
+  const _$StartedImpl();
 
   @override
   String toString() {
@@ -106,9 +107,9 @@ class _$_Started implements _Started {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
@@ -184,29 +185,29 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements ProfileEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_EditingToggledCopyWith<$Res> {
-  factory _$$_EditingToggledCopyWith(
-          _$_EditingToggled value, $Res Function(_$_EditingToggled) then) =
-      __$$_EditingToggledCopyWithImpl<$Res>;
+abstract class _$$EditingToggledImplCopyWith<$Res> {
+  factory _$$EditingToggledImplCopyWith(_$EditingToggledImpl value,
+          $Res Function(_$EditingToggledImpl) then) =
+      __$$EditingToggledImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_EditingToggledCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$_EditingToggled>
-    implements _$$_EditingToggledCopyWith<$Res> {
-  __$$_EditingToggledCopyWithImpl(
-      _$_EditingToggled _value, $Res Function(_$_EditingToggled) _then)
+class __$$EditingToggledImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$EditingToggledImpl>
+    implements _$$EditingToggledImplCopyWith<$Res> {
+  __$$EditingToggledImplCopyWithImpl(
+      _$EditingToggledImpl _value, $Res Function(_$EditingToggledImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_EditingToggled implements _EditingToggled {
-  const _$_EditingToggled();
+class _$EditingToggledImpl implements _EditingToggled {
+  const _$EditingToggledImpl();
 
   @override
   String toString() {
@@ -214,9 +215,9 @@ class _$_EditingToggled implements _EditingToggled {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_EditingToggled);
+        (other.runtimeType == runtimeType && other is _$EditingToggledImpl);
   }
 
   @override
@@ -292,24 +293,24 @@ class _$_EditingToggled implements _EditingToggled {
 }
 
 abstract class _EditingToggled implements ProfileEvent {
-  const factory _EditingToggled() = _$_EditingToggled;
+  const factory _EditingToggled() = _$EditingToggledImpl;
 }
 
 /// @nodoc
-abstract class _$$_SavePressedCopyWith<$Res> {
-  factory _$$_SavePressedCopyWith(
-          _$_SavePressed value, $Res Function(_$_SavePressed) then) =
-      __$$_SavePressedCopyWithImpl<$Res>;
+abstract class _$$SavePressedImplCopyWith<$Res> {
+  factory _$$SavePressedImplCopyWith(
+          _$SavePressedImpl value, $Res Function(_$SavePressedImpl) then) =
+      __$$SavePressedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GlobalKey<FormState> formKey});
 }
 
 /// @nodoc
-class __$$_SavePressedCopyWithImpl<$Res>
-    extends _$ProfileEventCopyWithImpl<$Res, _$_SavePressed>
-    implements _$$_SavePressedCopyWith<$Res> {
-  __$$_SavePressedCopyWithImpl(
-      _$_SavePressed _value, $Res Function(_$_SavePressed) _then)
+class __$$SavePressedImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$SavePressedImpl>
+    implements _$$SavePressedImplCopyWith<$Res> {
+  __$$SavePressedImplCopyWithImpl(
+      _$SavePressedImpl _value, $Res Function(_$SavePressedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -317,7 +318,7 @@ class __$$_SavePressedCopyWithImpl<$Res>
   $Res call({
     Object? formKey = null,
   }) {
-    return _then(_$_SavePressed(
+    return _then(_$SavePressedImpl(
       formKey: null == formKey
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -328,8 +329,8 @@ class __$$_SavePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SavePressed implements _SavePressed {
-  const _$_SavePressed({required this.formKey});
+class _$SavePressedImpl implements _SavePressed {
+  const _$SavePressedImpl({required this.formKey});
 
   @override
   final GlobalKey<FormState> formKey;
@@ -340,10 +341,10 @@ class _$_SavePressed implements _SavePressed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SavePressed &&
+            other is _$SavePressedImpl &&
             (identical(other.formKey, formKey) || other.formKey == formKey));
   }
 
@@ -353,8 +354,8 @@ class _$_SavePressed implements _SavePressed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SavePressedCopyWith<_$_SavePressed> get copyWith =>
-      __$$_SavePressedCopyWithImpl<_$_SavePressed>(this, _$identity);
+  _$$SavePressedImplCopyWith<_$SavePressedImpl> get copyWith =>
+      __$$SavePressedImplCopyWithImpl<_$SavePressedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -427,11 +428,11 @@ class _$_SavePressed implements _SavePressed {
 
 abstract class _SavePressed implements ProfileEvent {
   const factory _SavePressed({required final GlobalKey<FormState> formKey}) =
-      _$_SavePressed;
+      _$SavePressedImpl;
 
   GlobalKey<FormState> get formKey;
   @JsonKey(ignore: true)
-  _$$_SavePressedCopyWith<_$_SavePressed> get copyWith =>
+  _$$SavePressedImplCopyWith<_$SavePressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -500,11 +501,11 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
 }
 
 /// @nodoc
-abstract class _$$_ProfileStateCopyWith<$Res>
+abstract class _$$ProfileStateImplCopyWith<$Res>
     implements $ProfileStateCopyWith<$Res> {
-  factory _$$_ProfileStateCopyWith(
-          _$_ProfileState value, $Res Function(_$_ProfileState) then) =
-      __$$_ProfileStateCopyWithImpl<$Res>;
+  factory _$$ProfileStateImplCopyWith(
+          _$ProfileStateImpl value, $Res Function(_$ProfileStateImpl) then) =
+      __$$ProfileStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -515,11 +516,11 @@ abstract class _$$_ProfileStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfileStateCopyWithImpl<$Res>
-    extends _$ProfileStateCopyWithImpl<$Res, _$_ProfileState>
-    implements _$$_ProfileStateCopyWith<$Res> {
-  __$$_ProfileStateCopyWithImpl(
-      _$_ProfileState _value, $Res Function(_$_ProfileState) _then)
+class __$$ProfileStateImplCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res, _$ProfileStateImpl>
+    implements _$$ProfileStateImplCopyWith<$Res> {
+  __$$ProfileStateImplCopyWithImpl(
+      _$ProfileStateImpl _value, $Res Function(_$ProfileStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -530,7 +531,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? validateFields = null,
     Object? updatedOption = null,
   }) {
-    return _then(_$_ProfileState(
+    return _then(_$ProfileStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -553,8 +554,8 @@ class __$$_ProfileStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ProfileState implements _ProfileState {
-  const _$_ProfileState(
+class _$ProfileStateImpl implements _ProfileState {
+  const _$ProfileStateImpl(
       {required this.isLoading,
       required this.isEditing,
       required this.validateFields,
@@ -575,10 +576,10 @@ class _$_ProfileState implements _ProfileState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileState &&
+            other is _$ProfileStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.isEditing, isEditing) ||
@@ -596,8 +597,8 @@ class _$_ProfileState implements _ProfileState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
-      __$$_ProfileStateCopyWithImpl<_$_ProfileState>(this, _$identity);
+  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
+      __$$ProfileStateImplCopyWithImpl<_$ProfileStateImpl>(this, _$identity);
 }
 
 abstract class _ProfileState implements ProfileState {
@@ -605,7 +606,7 @@ abstract class _ProfileState implements ProfileState {
       {required final bool isLoading,
       required final bool isEditing,
       required final bool validateFields,
-      required final Option<bool> updatedOption}) = _$_ProfileState;
+      required final Option<bool> updatedOption}) = _$ProfileStateImpl;
 
   @override
   bool get isLoading;
@@ -617,6 +618,6 @@ abstract class _ProfileState implements ProfileState {
   Option<bool> get updatedOption;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
+  _$$ProfileStateImplCopyWith<_$ProfileStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

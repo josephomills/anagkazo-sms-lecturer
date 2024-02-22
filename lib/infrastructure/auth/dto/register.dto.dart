@@ -6,9 +6,10 @@ part 'register.dto.g.dart';
 @freezed
 class RegisterDTO with _$RegisterDTO {
   const factory RegisterDTO({
-    required String username,
     required String password,
-    String? email,
+    required String email,
+    required String firstname,
+    required String lastname,
   }) = _RegisterDTO;
 
   factory RegisterDTO.fromJson(Map<String, dynamic> json) =>

@@ -52,6 +52,17 @@ class Validator {
     return str;
   }
 
+  String? validateName(String? name) {
+    String? str;
+    if (name!.startsWith(RegExp(r'[0-9]'))) {
+      str = "Name cannot start with a number";
+    } else if (name.length < 2) {
+      str = "Enter a valid name";
+    }
+
+    return str;
+  }
+
   String? validatePassword(String? password) {
     final passwordLength = password!.length > 6;
     final hasUpperCase = password.contains(RegExp('[A-Z]'));

@@ -2,11 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 /// Loader with a centered [SpinKitChasingDots] on a blurred background
 class LoaderWidget extends StatelessWidget {
-  const LoaderWidget({Key? key}) : super(key: key);
+  const LoaderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +14,12 @@ class LoaderWidget extends StatelessWidget {
         Positioned(
           top: 56,
           child: SizedBox(
-            height: ResponsiveWrapper.of(context).scaledHeight,
-            width: ResponsiveWrapper.of(context).scaledWidth,
+            height: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width,
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
               child: SizedBox(
-                height: ResponsiveWrapper.of(context).scaledHeight - 56,
+                height: MediaQuery.of(context).size.width - 56,
                 width: double.infinity,
               ),
             ),

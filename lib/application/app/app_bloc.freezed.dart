@@ -86,24 +86,25 @@ class _$AppEventCopyWithImpl<$Res, $Val extends AppEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$StartedImpl implements _Started {
+  const _$StartedImpl();
 
   @override
   String toString() {
@@ -111,9 +112,9 @@ class _$_Started implements _Started {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
@@ -195,24 +196,24 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements AppEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_ThemeModeToggledCopyWith<$Res> {
-  factory _$$_ThemeModeToggledCopyWith(
-          _$_ThemeModeToggled value, $Res Function(_$_ThemeModeToggled) then) =
-      __$$_ThemeModeToggledCopyWithImpl<$Res>;
+abstract class _$$ThemeModeToggledImplCopyWith<$Res> {
+  factory _$$ThemeModeToggledImplCopyWith(_$ThemeModeToggledImpl value,
+          $Res Function(_$ThemeModeToggledImpl) then) =
+      __$$ThemeModeToggledImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ThemeMode themeMode});
 }
 
 /// @nodoc
-class __$$_ThemeModeToggledCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$_ThemeModeToggled>
-    implements _$$_ThemeModeToggledCopyWith<$Res> {
-  __$$_ThemeModeToggledCopyWithImpl(
-      _$_ThemeModeToggled _value, $Res Function(_$_ThemeModeToggled) _then)
+class __$$ThemeModeToggledImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$ThemeModeToggledImpl>
+    implements _$$ThemeModeToggledImplCopyWith<$Res> {
+  __$$ThemeModeToggledImplCopyWithImpl(_$ThemeModeToggledImpl _value,
+      $Res Function(_$ThemeModeToggledImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +221,7 @@ class __$$_ThemeModeToggledCopyWithImpl<$Res>
   $Res call({
     Object? themeMode = null,
   }) {
-    return _then(_$_ThemeModeToggled(
+    return _then(_$ThemeModeToggledImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -231,8 +232,8 @@ class __$$_ThemeModeToggledCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ThemeModeToggled implements _ThemeModeToggled {
-  const _$_ThemeModeToggled({required this.themeMode});
+class _$ThemeModeToggledImpl implements _ThemeModeToggled {
+  const _$ThemeModeToggledImpl({required this.themeMode});
 
   @override
   final ThemeMode themeMode;
@@ -243,10 +244,10 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThemeModeToggled &&
+            other is _$ThemeModeToggledImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode));
   }
@@ -257,8 +258,9 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThemeModeToggledCopyWith<_$_ThemeModeToggled> get copyWith =>
-      __$$_ThemeModeToggledCopyWithImpl<_$_ThemeModeToggled>(this, _$identity);
+  _$$ThemeModeToggledImplCopyWith<_$ThemeModeToggledImpl> get copyWith =>
+      __$$ThemeModeToggledImplCopyWithImpl<_$ThemeModeToggledImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -337,34 +339,34 @@ class _$_ThemeModeToggled implements _ThemeModeToggled {
 
 abstract class _ThemeModeToggled implements AppEvent {
   const factory _ThemeModeToggled({required final ThemeMode themeMode}) =
-      _$_ThemeModeToggled;
+      _$ThemeModeToggledImpl;
 
   ThemeMode get themeMode;
   @JsonKey(ignore: true)
-  _$$_ThemeModeToggledCopyWith<_$_ThemeModeToggled> get copyWith =>
+  _$$ThemeModeToggledImplCopyWith<_$ThemeModeToggledImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RotationsFetchedCopyWith<$Res> {
-  factory _$$_RotationsFetchedCopyWith(
-          _$_RotationsFetched value, $Res Function(_$_RotationsFetched) then) =
-      __$$_RotationsFetchedCopyWithImpl<$Res>;
+abstract class _$$RotationsFetchedImplCopyWith<$Res> {
+  factory _$$RotationsFetchedImplCopyWith(_$RotationsFetchedImpl value,
+          $Res Function(_$RotationsFetchedImpl) then) =
+      __$$RotationsFetchedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_RotationsFetchedCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$_RotationsFetched>
-    implements _$$_RotationsFetchedCopyWith<$Res> {
-  __$$_RotationsFetchedCopyWithImpl(
-      _$_RotationsFetched _value, $Res Function(_$_RotationsFetched) _then)
+class __$$RotationsFetchedImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$RotationsFetchedImpl>
+    implements _$$RotationsFetchedImplCopyWith<$Res> {
+  __$$RotationsFetchedImplCopyWithImpl(_$RotationsFetchedImpl _value,
+      $Res Function(_$RotationsFetchedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_RotationsFetched implements _RotationsFetched {
-  const _$_RotationsFetched();
+class _$RotationsFetchedImpl implements _RotationsFetched {
+  const _$RotationsFetchedImpl();
 
   @override
   String toString() {
@@ -372,9 +374,9 @@ class _$_RotationsFetched implements _RotationsFetched {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_RotationsFetched);
+        (other.runtimeType == runtimeType && other is _$RotationsFetchedImpl);
   }
 
   @override
@@ -456,29 +458,29 @@ class _$_RotationsFetched implements _RotationsFetched {
 }
 
 abstract class _RotationsFetched implements AppEvent {
-  const factory _RotationsFetched() = _$_RotationsFetched;
+  const factory _RotationsFetched() = _$RotationsFetchedImpl;
 }
 
 /// @nodoc
-abstract class _$$_ClassesFetchedCopyWith<$Res> {
-  factory _$$_ClassesFetchedCopyWith(
-          _$_ClassesFetched value, $Res Function(_$_ClassesFetched) then) =
-      __$$_ClassesFetchedCopyWithImpl<$Res>;
+abstract class _$$ClassesFetchedImplCopyWith<$Res> {
+  factory _$$ClassesFetchedImplCopyWith(_$ClassesFetchedImpl value,
+          $Res Function(_$ClassesFetchedImpl) then) =
+      __$$ClassesFetchedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ClassesFetchedCopyWithImpl<$Res>
-    extends _$AppEventCopyWithImpl<$Res, _$_ClassesFetched>
-    implements _$$_ClassesFetchedCopyWith<$Res> {
-  __$$_ClassesFetchedCopyWithImpl(
-      _$_ClassesFetched _value, $Res Function(_$_ClassesFetched) _then)
+class __$$ClassesFetchedImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$ClassesFetchedImpl>
+    implements _$$ClassesFetchedImplCopyWith<$Res> {
+  __$$ClassesFetchedImplCopyWithImpl(
+      _$ClassesFetchedImpl _value, $Res Function(_$ClassesFetchedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ClassesFetched implements _ClassesFetched {
-  const _$_ClassesFetched();
+class _$ClassesFetchedImpl implements _ClassesFetched {
+  const _$ClassesFetchedImpl();
 
   @override
   String toString() {
@@ -486,9 +488,9 @@ class _$_ClassesFetched implements _ClassesFetched {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ClassesFetched);
+        (other.runtimeType == runtimeType && other is _$ClassesFetchedImpl);
   }
 
   @override
@@ -570,7 +572,7 @@ class _$_ClassesFetched implements _ClassesFetched {
 }
 
 abstract class _ClassesFetched implements AppEvent {
-  const factory _ClassesFetched() = _$_ClassesFetched;
+  const factory _ClassesFetched() = _$ClassesFetchedImpl;
 }
 
 /// @nodoc
@@ -640,10 +642,11 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 }
 
 /// @nodoc
-abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$$_AppStateCopyWith(
-          _$_AppState value, $Res Function(_$_AppState) then) =
-      __$$_AppStateCopyWithImpl<$Res>;
+abstract class _$$AppStateImplCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$$AppStateImplCopyWith(
+          _$AppStateImpl value, $Res Function(_$AppStateImpl) then) =
+      __$$AppStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -655,11 +658,11 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AppStateCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$_AppState>
-    implements _$$_AppStateCopyWith<$Res> {
-  __$$_AppStateCopyWithImpl(
-      _$_AppState _value, $Res Function(_$_AppState) _then)
+class __$$AppStateImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateImpl>
+    implements _$$AppStateImplCopyWith<$Res> {
+  __$$AppStateImplCopyWithImpl(
+      _$AppStateImpl _value, $Res Function(_$AppStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -670,7 +673,7 @@ class __$$_AppStateCopyWithImpl<$Res>
     Object? failureOrYearGroupListOption = null,
     Object? isLoading = null,
   }) {
-    return _then(_$_AppState(
+    return _then(_$AppStateImpl(
       themeMode: null == themeMode
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
@@ -693,8 +696,8 @@ class __$$_AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppState implements _AppState {
-  const _$_AppState(
+class _$AppStateImpl implements _AppState {
+  const _$AppStateImpl(
       {required this.themeMode,
       required this.failureOrRotationsOption,
       required this.failureOrYearGroupListOption,
@@ -717,10 +720,10 @@ class _$_AppState implements _AppState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppState &&
+            other is _$AppStateImpl &&
             (identical(other.themeMode, themeMode) ||
                 other.themeMode == themeMode) &&
             (identical(
@@ -741,8 +744,8 @@ class _$_AppState implements _AppState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
-      __$$_AppStateCopyWithImpl<_$_AppState>(this, _$identity);
+  _$$AppStateImplCopyWith<_$AppStateImpl> get copyWith =>
+      __$$AppStateImplCopyWithImpl<_$AppStateImpl>(this, _$identity);
 }
 
 abstract class _AppState implements AppState {
@@ -752,7 +755,7 @@ abstract class _AppState implements AppState {
           failureOrRotationsOption,
       required final Option<Either<AppFailure, List<YearGroupObject>>>
           failureOrYearGroupListOption,
-      required final bool isLoading}) = _$_AppState;
+      required final bool isLoading}) = _$AppStateImpl;
 
   @override
   ThemeMode get themeMode;
@@ -765,6 +768,6 @@ abstract class _AppState implements AppState {
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
+  _$$AppStateImplCopyWith<_$AppStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

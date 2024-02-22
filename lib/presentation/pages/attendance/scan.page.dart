@@ -11,12 +11,11 @@ import 'package:lecturer/presentation/widgets/loader.widget.dart';
 import 'package:lecturer/presentation/widgets/scan_confirmation.widget.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 /// Scan page
 @RoutePage()
 class ScanPage extends StatefulWidget implements AutoRouteWrapper {
-  const ScanPage({Key? key, required this.attendanceBloc}) : super(key: key);
+  const ScanPage({super.key, required this.attendanceBloc});
 
   final AttendanceBloc attendanceBloc;
 
@@ -163,7 +162,7 @@ class _ScanPageState extends State<ScanPage>
               // Scanner animation
               ScannerAnimatedWidget(
                 stopped: !(state.isScanning),
-                width: ResponsiveWrapper.of(context).scaledWidth,
+                width: MediaQuery.of(context).size.width,
                 animation: _animationCtrl,
               ),
               // Loading spinner

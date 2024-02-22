@@ -78,9 +78,11 @@ abstract class $AppRouter extends _i11.RootStackRouter {
       );
     },
     RegisterRoute.name: (routeData) {
+      final args = routeData.argsAs<RegisterRouteArgs>(
+          orElse: () => const RegisterRouteArgs());
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.RegisterPage(),
+        child: _i11.WrappedRoute(child: _i8.RegisterPage(key: args.key)),
       );
     },
     ScanConfirmationRoute.name: (routeData) {
@@ -237,16 +239,31 @@ class ProfileRouteArgs {
 
 /// generated route for
 /// [_i8.RegisterPage]
-class RegisterRoute extends _i11.PageRouteInfo<void> {
-  const RegisterRoute({List<_i11.PageRouteInfo>? children})
-      : super(
+class RegisterRoute extends _i11.PageRouteInfo<RegisterRouteArgs> {
+  RegisterRoute({
+    _i12.Key? key,
+    List<_i11.PageRouteInfo>? children,
+  }) : super(
           RegisterRoute.name,
+          args: RegisterRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'RegisterRoute';
 
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+  static const _i11.PageInfo<RegisterRouteArgs> page =
+      _i11.PageInfo<RegisterRouteArgs>(name);
+}
+
+class RegisterRouteArgs {
+  const RegisterRouteArgs({this.key});
+
+  final _i12.Key? key;
+
+  @override
+  String toString() {
+    return 'RegisterRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

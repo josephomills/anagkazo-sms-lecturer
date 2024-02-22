@@ -91,6 +91,23 @@ class LoginPage extends StatelessWidget implements AutoRouteWrapper {
                       label: "Login",
                       widthFactor: 0.8,
                     ),
+                    const SizedBox(height: 30),
+                    const Text(
+                      "OR",
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 30),
+                    ButtonWidget(
+                      onTap: () {
+                        unfocus(context);
+                        context.router.push(RegisterRoute());
+                      },
+                      isLoading: state.isLoading,
+                      label: "Register a new account",
+                      widthFactor: 0.8,
+                      backgroundColor: Theme.of(context).colorScheme.tertiary,
+                      textColor: Theme.of(context).colorScheme.onTertiary,
+                    ),
                   ],
                 ),
               );

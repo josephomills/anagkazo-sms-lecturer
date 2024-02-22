@@ -73,21 +73,22 @@ class _$LoginDTOCopyWithImpl<$Res, $Val extends LoginDTO>
 }
 
 /// @nodoc
-abstract class _$$_LoginDTOCopyWith<$Res> implements $LoginDTOCopyWith<$Res> {
-  factory _$$_LoginDTOCopyWith(
-          _$_LoginDTO value, $Res Function(_$_LoginDTO) then) =
-      __$$_LoginDTOCopyWithImpl<$Res>;
+abstract class _$$LoginDTOImplCopyWith<$Res>
+    implements $LoginDTOCopyWith<$Res> {
+  factory _$$LoginDTOImplCopyWith(
+          _$LoginDTOImpl value, $Res Function(_$LoginDTOImpl) then) =
+      __$$LoginDTOImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String username, String password, String? email});
 }
 
 /// @nodoc
-class __$$_LoginDTOCopyWithImpl<$Res>
-    extends _$LoginDTOCopyWithImpl<$Res, _$_LoginDTO>
-    implements _$$_LoginDTOCopyWith<$Res> {
-  __$$_LoginDTOCopyWithImpl(
-      _$_LoginDTO _value, $Res Function(_$_LoginDTO) _then)
+class __$$LoginDTOImplCopyWithImpl<$Res>
+    extends _$LoginDTOCopyWithImpl<$Res, _$LoginDTOImpl>
+    implements _$$LoginDTOImplCopyWith<$Res> {
+  __$$LoginDTOImplCopyWithImpl(
+      _$LoginDTOImpl _value, $Res Function(_$LoginDTOImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +98,7 @@ class __$$_LoginDTOCopyWithImpl<$Res>
     Object? password = null,
     Object? email = freezed,
   }) {
-    return _then(_$_LoginDTO(
+    return _then(_$LoginDTOImpl(
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -116,12 +117,12 @@ class __$$_LoginDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LoginDTO implements _LoginDTO {
-  const _$_LoginDTO(
+class _$LoginDTOImpl implements _LoginDTO {
+  const _$LoginDTOImpl(
       {required this.username, required this.password, this.email});
 
-  factory _$_LoginDTO.fromJson(Map<String, dynamic> json) =>
-      _$$_LoginDTOFromJson(json);
+  factory _$LoginDTOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LoginDTOImplFromJson(json);
 
   @override
   final String username;
@@ -136,10 +137,10 @@ class _$_LoginDTO implements _LoginDTO {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoginDTO &&
+            other is _$LoginDTOImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
@@ -154,12 +155,12 @@ class _$_LoginDTO implements _LoginDTO {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoginDTOCopyWith<_$_LoginDTO> get copyWith =>
-      __$$_LoginDTOCopyWithImpl<_$_LoginDTO>(this, _$identity);
+  _$$LoginDTOImplCopyWith<_$LoginDTOImpl> get copyWith =>
+      __$$LoginDTOImplCopyWithImpl<_$LoginDTOImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoginDTOToJson(
+    return _$$LoginDTOImplToJson(
       this,
     );
   }
@@ -169,9 +170,10 @@ abstract class _LoginDTO implements LoginDTO {
   const factory _LoginDTO(
       {required final String username,
       required final String password,
-      final String? email}) = _$_LoginDTO;
+      final String? email}) = _$LoginDTOImpl;
 
-  factory _LoginDTO.fromJson(Map<String, dynamic> json) = _$_LoginDTO.fromJson;
+  factory _LoginDTO.fromJson(Map<String, dynamic> json) =
+      _$LoginDTOImpl.fromJson;
 
   @override
   String get username;
@@ -181,6 +183,6 @@ abstract class _LoginDTO implements LoginDTO {
   String? get email;
   @override
   @JsonKey(ignore: true)
-  _$$_LoginDTOCopyWith<_$_LoginDTO> get copyWith =>
+  _$$LoginDTOImplCopyWith<_$LoginDTOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

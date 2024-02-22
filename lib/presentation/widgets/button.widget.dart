@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 /// Dyamic implementation of [ElevatedButton]
 class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
-    Key? key,
+    super.key,
     required this.onTap,
     this.isLoading = false,
     this.widthFactor = 1,
@@ -14,7 +13,7 @@ class ButtonWidget extends StatelessWidget {
     this.spinnerColor,
     this.height = 56,
     this.textColor,
-  }) : super(key: key);
+  });
 
   final VoidCallback? onTap;
   final bool isLoading;
@@ -38,7 +37,7 @@ class ButtonWidget extends StatelessWidget {
             }),
             fixedSize: MaterialStateProperty.all<Size>(
               Size(
-                ResponsiveWrapper.of(context).scaledWidth * widthFactor,
+                MediaQuery.of(context).size.width * widthFactor,
                 height,
               ),
             ),

@@ -151,7 +151,7 @@ class ScanConfirmationWidget extends StatelessWidget {
                     ),
                     Positioned(
                       bottom: 2,
-                      right: ResponsiveWrapper.of(context).scaledWidth / 2 - 40,
+                      right: MediaQuery.of(context).size.width / 2 - 40,
                       child: IconButton(
                         onPressed: () async => takeSelfie(context),
                         icon: Icon(

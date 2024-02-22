@@ -104,24 +104,25 @@ class _$ScanEventCopyWithImpl<$Res, $Val extends ScanEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$StartedImpl implements _Started {
+  const _$StartedImpl();
 
   @override
   String toString() {
@@ -129,9 +130,9 @@ class _$_Started implements _Started {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$StartedImpl);
   }
 
   @override
@@ -231,24 +232,24 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements ScanEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$_ScanDetectedCopyWith<$Res> {
-  factory _$$_ScanDetectedCopyWith(
-          _$_ScanDetected value, $Res Function(_$_ScanDetected) then) =
-      __$$_ScanDetectedCopyWithImpl<$Res>;
+abstract class _$$ScanDetectedImplCopyWith<$Res> {
+  factory _$$ScanDetectedImplCopyWith(
+          _$ScanDetectedImpl value, $Res Function(_$ScanDetectedImpl) then) =
+      __$$ScanDetectedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> qr});
 }
 
 /// @nodoc
-class __$$_ScanDetectedCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_ScanDetected>
-    implements _$$_ScanDetectedCopyWith<$Res> {
-  __$$_ScanDetectedCopyWithImpl(
-      _$_ScanDetected _value, $Res Function(_$_ScanDetected) _then)
+class __$$ScanDetectedImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$ScanDetectedImpl>
+    implements _$$ScanDetectedImplCopyWith<$Res> {
+  __$$ScanDetectedImplCopyWithImpl(
+      _$ScanDetectedImpl _value, $Res Function(_$ScanDetectedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -256,7 +257,7 @@ class __$$_ScanDetectedCopyWithImpl<$Res>
   $Res call({
     Object? qr = null,
   }) {
-    return _then(_$_ScanDetected(
+    return _then(_$ScanDetectedImpl(
       qr: null == qr
           ? _value._qr
           : qr // ignore: cast_nullable_to_non_nullable
@@ -267,8 +268,8 @@ class __$$_ScanDetectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScanDetected implements _ScanDetected {
-  const _$_ScanDetected({required final Map<String, dynamic> qr}) : _qr = qr;
+class _$ScanDetectedImpl implements _ScanDetected {
+  const _$ScanDetectedImpl({required final Map<String, dynamic> qr}) : _qr = qr;
 
   final Map<String, dynamic> _qr;
   @override
@@ -284,10 +285,10 @@ class _$_ScanDetected implements _ScanDetected {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScanDetected &&
+            other is _$ScanDetectedImpl &&
             const DeepCollectionEquality().equals(other._qr, _qr));
   }
 
@@ -298,8 +299,8 @@ class _$_ScanDetected implements _ScanDetected {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScanDetectedCopyWith<_$_ScanDetected> get copyWith =>
-      __$$_ScanDetectedCopyWithImpl<_$_ScanDetected>(this, _$identity);
+  _$$ScanDetectedImplCopyWith<_$ScanDetectedImpl> get copyWith =>
+      __$$ScanDetectedImplCopyWithImpl<_$ScanDetectedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -396,34 +397,34 @@ class _$_ScanDetected implements _ScanDetected {
 
 abstract class _ScanDetected implements ScanEvent {
   const factory _ScanDetected({required final Map<String, dynamic> qr}) =
-      _$_ScanDetected;
+      _$ScanDetectedImpl;
 
   Map<String, dynamic> get qr;
   @JsonKey(ignore: true)
-  _$$_ScanDetectedCopyWith<_$_ScanDetected> get copyWith =>
+  _$$ScanDetectedImplCopyWith<_$ScanDetectedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ScanConfirmedCopyWith<$Res> {
-  factory _$$_ScanConfirmedCopyWith(
-          _$_ScanConfirmed value, $Res Function(_$_ScanConfirmed) then) =
-      __$$_ScanConfirmedCopyWithImpl<$Res>;
+abstract class _$$ScanConfirmedImplCopyWith<$Res> {
+  factory _$$ScanConfirmedImplCopyWith(
+          _$ScanConfirmedImpl value, $Res Function(_$ScanConfirmedImpl) then) =
+      __$$ScanConfirmedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ScanConfirmedCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_ScanConfirmed>
-    implements _$$_ScanConfirmedCopyWith<$Res> {
-  __$$_ScanConfirmedCopyWithImpl(
-      _$_ScanConfirmed _value, $Res Function(_$_ScanConfirmed) _then)
+class __$$ScanConfirmedImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$ScanConfirmedImpl>
+    implements _$$ScanConfirmedImplCopyWith<$Res> {
+  __$$ScanConfirmedImplCopyWithImpl(
+      _$ScanConfirmedImpl _value, $Res Function(_$ScanConfirmedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ScanConfirmed implements _ScanConfirmed {
-  const _$_ScanConfirmed();
+class _$ScanConfirmedImpl implements _ScanConfirmed {
+  const _$ScanConfirmedImpl();
 
   @override
   String toString() {
@@ -431,9 +432,9 @@ class _$_ScanConfirmed implements _ScanConfirmed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ScanConfirmed);
+        (other.runtimeType == runtimeType && other is _$ScanConfirmedImpl);
   }
 
   @override
@@ -533,29 +534,29 @@ class _$_ScanConfirmed implements _ScanConfirmed {
 }
 
 abstract class _ScanConfirmed implements ScanEvent {
-  const factory _ScanConfirmed() = _$_ScanConfirmed;
+  const factory _ScanConfirmed() = _$ScanConfirmedImpl;
 }
 
 /// @nodoc
-abstract class _$$_ScanCancelledCopyWith<$Res> {
-  factory _$$_ScanCancelledCopyWith(
-          _$_ScanCancelled value, $Res Function(_$_ScanCancelled) then) =
-      __$$_ScanCancelledCopyWithImpl<$Res>;
+abstract class _$$ScanCancelledImplCopyWith<$Res> {
+  factory _$$ScanCancelledImplCopyWith(
+          _$ScanCancelledImpl value, $Res Function(_$ScanCancelledImpl) then) =
+      __$$ScanCancelledImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ScanCancelledCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_ScanCancelled>
-    implements _$$_ScanCancelledCopyWith<$Res> {
-  __$$_ScanCancelledCopyWithImpl(
-      _$_ScanCancelled _value, $Res Function(_$_ScanCancelled) _then)
+class __$$ScanCancelledImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$ScanCancelledImpl>
+    implements _$$ScanCancelledImplCopyWith<$Res> {
+  __$$ScanCancelledImplCopyWithImpl(
+      _$ScanCancelledImpl _value, $Res Function(_$ScanCancelledImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ScanCancelled implements _ScanCancelled {
-  const _$_ScanCancelled();
+class _$ScanCancelledImpl implements _ScanCancelled {
+  const _$ScanCancelledImpl();
 
   @override
   String toString() {
@@ -563,9 +564,9 @@ class _$_ScanCancelled implements _ScanCancelled {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ScanCancelled);
+        (other.runtimeType == runtimeType && other is _$ScanCancelledImpl);
   }
 
   @override
@@ -665,24 +666,24 @@ class _$_ScanCancelled implements _ScanCancelled {
 }
 
 abstract class _ScanCancelled implements ScanEvent {
-  const factory _ScanCancelled() = _$_ScanCancelled;
+  const factory _ScanCancelled() = _$ScanCancelledImpl;
 }
 
 /// @nodoc
-abstract class _$$_SelfieTakenCopyWith<$Res> {
-  factory _$$_SelfieTakenCopyWith(
-          _$_SelfieTaken value, $Res Function(_$_SelfieTaken) then) =
-      __$$_SelfieTakenCopyWithImpl<$Res>;
+abstract class _$$SelfieTakenImplCopyWith<$Res> {
+  factory _$$SelfieTakenImplCopyWith(
+          _$SelfieTakenImpl value, $Res Function(_$SelfieTakenImpl) then) =
+      __$$SelfieTakenImplCopyWithImpl<$Res>;
   @useResult
   $Res call({XFile? selfie});
 }
 
 /// @nodoc
-class __$$_SelfieTakenCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_SelfieTaken>
-    implements _$$_SelfieTakenCopyWith<$Res> {
-  __$$_SelfieTakenCopyWithImpl(
-      _$_SelfieTaken _value, $Res Function(_$_SelfieTaken) _then)
+class __$$SelfieTakenImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$SelfieTakenImpl>
+    implements _$$SelfieTakenImplCopyWith<$Res> {
+  __$$SelfieTakenImplCopyWithImpl(
+      _$SelfieTakenImpl _value, $Res Function(_$SelfieTakenImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -690,7 +691,7 @@ class __$$_SelfieTakenCopyWithImpl<$Res>
   $Res call({
     Object? selfie = freezed,
   }) {
-    return _then(_$_SelfieTaken(
+    return _then(_$SelfieTakenImpl(
       selfie: freezed == selfie
           ? _value.selfie
           : selfie // ignore: cast_nullable_to_non_nullable
@@ -701,8 +702,8 @@ class __$$_SelfieTakenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SelfieTaken implements _SelfieTaken {
-  const _$_SelfieTaken({this.selfie});
+class _$SelfieTakenImpl implements _SelfieTaken {
+  const _$SelfieTakenImpl({this.selfie});
 
   @override
   final XFile? selfie;
@@ -713,10 +714,10 @@ class _$_SelfieTaken implements _SelfieTaken {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelfieTaken &&
+            other is _$SelfieTakenImpl &&
             (identical(other.selfie, selfie) || other.selfie == selfie));
   }
 
@@ -726,8 +727,8 @@ class _$_SelfieTaken implements _SelfieTaken {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SelfieTakenCopyWith<_$_SelfieTaken> get copyWith =>
-      __$$_SelfieTakenCopyWithImpl<_$_SelfieTaken>(this, _$identity);
+  _$$SelfieTakenImplCopyWith<_$SelfieTakenImpl> get copyWith =>
+      __$$SelfieTakenImplCopyWithImpl<_$SelfieTakenImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -823,29 +824,29 @@ class _$_SelfieTaken implements _SelfieTaken {
 }
 
 abstract class _SelfieTaken implements ScanEvent {
-  const factory _SelfieTaken({final XFile? selfie}) = _$_SelfieTaken;
+  const factory _SelfieTaken({final XFile? selfie}) = _$SelfieTakenImpl;
 
   XFile? get selfie;
   @JsonKey(ignore: true)
-  _$$_SelfieTakenCopyWith<_$_SelfieTaken> get copyWith =>
+  _$$SelfieTakenImplCopyWith<_$SelfieTakenImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ScannerStartedCopyWith<$Res> {
-  factory _$$_ScannerStartedCopyWith(
-          _$_ScannerStarted value, $Res Function(_$_ScannerStarted) then) =
-      __$$_ScannerStartedCopyWithImpl<$Res>;
+abstract class _$$ScannerStartedImplCopyWith<$Res> {
+  factory _$$ScannerStartedImplCopyWith(_$ScannerStartedImpl value,
+          $Res Function(_$ScannerStartedImpl) then) =
+      __$$ScannerStartedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool status});
 }
 
 /// @nodoc
-class __$$_ScannerStartedCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_ScannerStarted>
-    implements _$$_ScannerStartedCopyWith<$Res> {
-  __$$_ScannerStartedCopyWithImpl(
-      _$_ScannerStarted _value, $Res Function(_$_ScannerStarted) _then)
+class __$$ScannerStartedImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$ScannerStartedImpl>
+    implements _$$ScannerStartedImplCopyWith<$Res> {
+  __$$ScannerStartedImplCopyWithImpl(
+      _$ScannerStartedImpl _value, $Res Function(_$ScannerStartedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -853,7 +854,7 @@ class __$$_ScannerStartedCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
   }) {
-    return _then(_$_ScannerStarted(
+    return _then(_$ScannerStartedImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -864,8 +865,8 @@ class __$$_ScannerStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScannerStarted implements _ScannerStarted {
-  const _$_ScannerStarted({required this.status});
+class _$ScannerStartedImpl implements _ScannerStarted {
+  const _$ScannerStartedImpl({required this.status});
 
   @override
   final bool status;
@@ -876,10 +877,10 @@ class _$_ScannerStarted implements _ScannerStarted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScannerStarted &&
+            other is _$ScannerStartedImpl &&
             (identical(other.status, status) || other.status == status));
   }
 
@@ -889,8 +890,9 @@ class _$_ScannerStarted implements _ScannerStarted {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScannerStartedCopyWith<_$_ScannerStarted> get copyWith =>
-      __$$_ScannerStartedCopyWithImpl<_$_ScannerStarted>(this, _$identity);
+  _$$ScannerStartedImplCopyWith<_$ScannerStartedImpl> get copyWith =>
+      __$$ScannerStartedImplCopyWithImpl<_$ScannerStartedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -987,29 +989,29 @@ class _$_ScannerStarted implements _ScannerStarted {
 
 abstract class _ScannerStarted implements ScanEvent {
   const factory _ScannerStarted({required final bool status}) =
-      _$_ScannerStarted;
+      _$ScannerStartedImpl;
 
   bool get status;
   @JsonKey(ignore: true)
-  _$$_ScannerStartedCopyWith<_$_ScannerStarted> get copyWith =>
+  _$$ScannerStartedImplCopyWith<_$ScannerStartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_YearGroupChangedCopyWith<$Res> {
-  factory _$$_YearGroupChangedCopyWith(
-          _$_YearGroupChanged value, $Res Function(_$_YearGroupChanged) then) =
-      __$$_YearGroupChangedCopyWithImpl<$Res>;
+abstract class _$$YearGroupChangedImplCopyWith<$Res> {
+  factory _$$YearGroupChangedImplCopyWith(_$YearGroupChangedImpl value,
+          $Res Function(_$YearGroupChangedImpl) then) =
+      __$$YearGroupChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? yearGroup});
 }
 
 /// @nodoc
-class __$$_YearGroupChangedCopyWithImpl<$Res>
-    extends _$ScanEventCopyWithImpl<$Res, _$_YearGroupChanged>
-    implements _$$_YearGroupChangedCopyWith<$Res> {
-  __$$_YearGroupChangedCopyWithImpl(
-      _$_YearGroupChanged _value, $Res Function(_$_YearGroupChanged) _then)
+class __$$YearGroupChangedImplCopyWithImpl<$Res>
+    extends _$ScanEventCopyWithImpl<$Res, _$YearGroupChangedImpl>
+    implements _$$YearGroupChangedImplCopyWith<$Res> {
+  __$$YearGroupChangedImplCopyWithImpl(_$YearGroupChangedImpl _value,
+      $Res Function(_$YearGroupChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1017,7 +1019,7 @@ class __$$_YearGroupChangedCopyWithImpl<$Res>
   $Res call({
     Object? yearGroup = freezed,
   }) {
-    return _then(_$_YearGroupChanged(
+    return _then(_$YearGroupChangedImpl(
       yearGroup: freezed == yearGroup
           ? _value.yearGroup
           : yearGroup // ignore: cast_nullable_to_non_nullable
@@ -1028,8 +1030,8 @@ class __$$_YearGroupChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_YearGroupChanged implements _YearGroupChanged {
-  const _$_YearGroupChanged({required this.yearGroup});
+class _$YearGroupChangedImpl implements _YearGroupChanged {
+  const _$YearGroupChangedImpl({required this.yearGroup});
 
   @override
   final String? yearGroup;
@@ -1040,10 +1042,10 @@ class _$_YearGroupChanged implements _YearGroupChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_YearGroupChanged &&
+            other is _$YearGroupChangedImpl &&
             (identical(other.yearGroup, yearGroup) ||
                 other.yearGroup == yearGroup));
   }
@@ -1054,8 +1056,9 @@ class _$_YearGroupChanged implements _YearGroupChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_YearGroupChangedCopyWith<_$_YearGroupChanged> get copyWith =>
-      __$$_YearGroupChangedCopyWithImpl<_$_YearGroupChanged>(this, _$identity);
+  _$$YearGroupChangedImplCopyWith<_$YearGroupChangedImpl> get copyWith =>
+      __$$YearGroupChangedImplCopyWithImpl<_$YearGroupChangedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1152,11 +1155,11 @@ class _$_YearGroupChanged implements _YearGroupChanged {
 
 abstract class _YearGroupChanged implements ScanEvent {
   const factory _YearGroupChanged({required final String? yearGroup}) =
-      _$_YearGroupChanged;
+      _$YearGroupChangedImpl;
 
   String? get yearGroup;
   @JsonKey(ignore: true)
-  _$$_YearGroupChangedCopyWith<_$_YearGroupChanged> get copyWith =>
+  _$$YearGroupChangedImplCopyWith<_$YearGroupChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1274,10 +1277,11 @@ class _$ScanStateCopyWithImpl<$Res, $Val extends ScanState>
 }
 
 /// @nodoc
-abstract class _$$_ScanStateCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
-  factory _$$_ScanStateCopyWith(
-          _$_ScanState value, $Res Function(_$_ScanState) then) =
-      __$$_ScanStateCopyWithImpl<$Res>;
+abstract class _$$ScanStateImplCopyWith<$Res>
+    implements $ScanStateCopyWith<$Res> {
+  factory _$$ScanStateImplCopyWith(
+          _$ScanStateImpl value, $Res Function(_$ScanStateImpl) then) =
+      __$$ScanStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1295,11 +1299,11 @@ abstract class _$$_ScanStateCopyWith<$Res> implements $ScanStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ScanStateCopyWithImpl<$Res>
-    extends _$ScanStateCopyWithImpl<$Res, _$_ScanState>
-    implements _$$_ScanStateCopyWith<$Res> {
-  __$$_ScanStateCopyWithImpl(
-      _$_ScanState _value, $Res Function(_$_ScanState) _then)
+class __$$ScanStateImplCopyWithImpl<$Res>
+    extends _$ScanStateCopyWithImpl<$Res, _$ScanStateImpl>
+    implements _$$ScanStateImplCopyWith<$Res> {
+  __$$ScanStateImplCopyWithImpl(
+      _$ScanStateImpl _value, $Res Function(_$ScanStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1317,7 +1321,7 @@ class __$$_ScanStateCopyWithImpl<$Res>
     Object? eventOption = null,
     Object? failureOrScanOption = null,
   }) {
-    return _then(_$_ScanState(
+    return _then(_$ScanStateImpl(
       isScanning: null == isScanning
           ? _value.isScanning
           : isScanning // ignore: cast_nullable_to_non_nullable
@@ -1368,8 +1372,8 @@ class __$$_ScanStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScanState implements _ScanState {
-  const _$_ScanState(
+class _$ScanStateImpl implements _ScanState {
+  const _$ScanStateImpl(
       {required this.isScanning,
       required this.isLoading,
       required this.hasTakenSelfie,
@@ -1420,10 +1424,10 @@ class _$_ScanState implements _ScanState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScanState &&
+            other is _$ScanStateImpl &&
             (identical(other.isScanning, isScanning) ||
                 other.isScanning == isScanning) &&
             (identical(other.isLoading, isLoading) ||
@@ -1464,8 +1468,8 @@ class _$_ScanState implements _ScanState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ScanStateCopyWith<_$_ScanState> get copyWith =>
-      __$$_ScanStateCopyWithImpl<_$_ScanState>(this, _$identity);
+  _$$ScanStateImplCopyWith<_$ScanStateImpl> get copyWith =>
+      __$$ScanStateImplCopyWithImpl<_$ScanStateImpl>(this, _$identity);
 }
 
 abstract class _ScanState implements ScanState {
@@ -1481,7 +1485,7 @@ abstract class _ScanState implements ScanState {
       final XFile? selfie,
       required final Option<EventObject> eventOption,
       required final Option<Either<ScanFailure, ScanObject>>
-          failureOrScanOption}) = _$_ScanState;
+          failureOrScanOption}) = _$ScanStateImpl;
 
   @override
   bool get isScanning;
@@ -1507,6 +1511,6 @@ abstract class _ScanState implements ScanState {
   Option<Either<ScanFailure, ScanObject>> get failureOrScanOption;
   @override
   @JsonKey(ignore: true)
-  _$$_ScanStateCopyWith<_$_ScanState> get copyWith =>
+  _$$ScanStateImplCopyWith<_$ScanStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

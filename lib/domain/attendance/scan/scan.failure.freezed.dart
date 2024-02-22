@@ -110,22 +110,22 @@ class _$ScanFailureCopyWithImpl<$Res, $Val extends ScanFailure>
 }
 
 /// @nodoc
-abstract class _$$_ServerErrorCopyWith<$Res>
+abstract class _$$ServerErrorImplCopyWith<$Res>
     implements $ScanFailureCopyWith<$Res> {
-  factory _$$_ServerErrorCopyWith(
-          _$_ServerError value, $Res Function(_$_ServerError) then) =
-      __$$_ServerErrorCopyWithImpl<$Res>;
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ServerErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res, _$_ServerError>
-    implements _$$_ServerErrorCopyWith<$Res> {
-  __$$_ServerErrorCopyWithImpl(
-      _$_ServerError _value, $Res Function(_$_ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -133,7 +133,7 @@ class __$$_ServerErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_ServerError(
+    return _then(_$ServerErrorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -144,8 +144,8 @@ class __$$_ServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError({this.message});
+class _$ServerErrorImpl implements _ServerError {
+  const _$ServerErrorImpl({this.message});
 
   @override
   final String? message;
@@ -156,10 +156,10 @@ class _$_ServerError implements _ServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ServerError &&
+            other is _$ServerErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -169,8 +169,8 @@ class _$_ServerError implements _ServerError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
-      __$$_ServerErrorCopyWithImpl<_$_ServerError>(this, _$identity);
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
+      __$$ServerErrorImplCopyWithImpl<_$ServerErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -251,33 +251,33 @@ class _$_ServerError implements _ServerError {
 }
 
 abstract class _ServerError implements ScanFailure {
-  const factory _ServerError({final String? message}) = _$_ServerError;
+  const factory _ServerError({final String? message}) = _$ServerErrorImpl;
 
   @override
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ServerErrorCopyWith<_$_ServerError> get copyWith =>
+  _$$ServerErrorImplCopyWith<_$ServerErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DuplicateScanErrorCopyWith<$Res>
+abstract class _$$DuplicateScanErrorImplCopyWith<$Res>
     implements $ScanFailureCopyWith<$Res> {
-  factory _$$_DuplicateScanErrorCopyWith(_$_DuplicateScanError value,
-          $Res Function(_$_DuplicateScanError) then) =
-      __$$_DuplicateScanErrorCopyWithImpl<$Res>;
+  factory _$$DuplicateScanErrorImplCopyWith(_$DuplicateScanErrorImpl value,
+          $Res Function(_$DuplicateScanErrorImpl) then) =
+      __$$DuplicateScanErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message, ScanObject? scanObject});
 }
 
 /// @nodoc
-class __$$_DuplicateScanErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res, _$_DuplicateScanError>
-    implements _$$_DuplicateScanErrorCopyWith<$Res> {
-  __$$_DuplicateScanErrorCopyWithImpl(
-      _$_DuplicateScanError _value, $Res Function(_$_DuplicateScanError) _then)
+class __$$DuplicateScanErrorImplCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$DuplicateScanErrorImpl>
+    implements _$$DuplicateScanErrorImplCopyWith<$Res> {
+  __$$DuplicateScanErrorImplCopyWithImpl(_$DuplicateScanErrorImpl _value,
+      $Res Function(_$DuplicateScanErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -286,7 +286,7 @@ class __$$_DuplicateScanErrorCopyWithImpl<$Res>
     Object? message = freezed,
     Object? scanObject = freezed,
   }) {
-    return _then(_$_DuplicateScanError(
+    return _then(_$DuplicateScanErrorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -301,8 +301,8 @@ class __$$_DuplicateScanErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DuplicateScanError implements _DuplicateScanError {
-  const _$_DuplicateScanError({this.message, this.scanObject});
+class _$DuplicateScanErrorImpl implements _DuplicateScanError {
+  const _$DuplicateScanErrorImpl({this.message, this.scanObject});
 
   @override
   final String? message;
@@ -315,10 +315,10 @@ class _$_DuplicateScanError implements _DuplicateScanError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DuplicateScanError &&
+            other is _$DuplicateScanErrorImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.scanObject, scanObject) ||
                 other.scanObject == scanObject));
@@ -330,8 +330,8 @@ class _$_DuplicateScanError implements _DuplicateScanError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DuplicateScanErrorCopyWith<_$_DuplicateScanError> get copyWith =>
-      __$$_DuplicateScanErrorCopyWithImpl<_$_DuplicateScanError>(
+  _$$DuplicateScanErrorImplCopyWith<_$DuplicateScanErrorImpl> get copyWith =>
+      __$$DuplicateScanErrorImplCopyWithImpl<_$DuplicateScanErrorImpl>(
           this, _$identity);
 
   @override
@@ -415,34 +415,34 @@ class _$_DuplicateScanError implements _DuplicateScanError {
 abstract class _DuplicateScanError implements ScanFailure {
   const factory _DuplicateScanError(
       {final String? message,
-      final ScanObject? scanObject}) = _$_DuplicateScanError;
+      final ScanObject? scanObject}) = _$DuplicateScanErrorImpl;
 
   @override
   String? get message;
   ScanObject? get scanObject;
   @override
   @JsonKey(ignore: true)
-  _$$_DuplicateScanErrorCopyWith<_$_DuplicateScanError> get copyWith =>
+  _$$DuplicateScanErrorImplCopyWith<_$DuplicateScanErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InvalidEventErrorCopyWith<$Res>
+abstract class _$$InvalidEventErrorImplCopyWith<$Res>
     implements $ScanFailureCopyWith<$Res> {
-  factory _$$_InvalidEventErrorCopyWith(_$_InvalidEventError value,
-          $Res Function(_$_InvalidEventError) then) =
-      __$$_InvalidEventErrorCopyWithImpl<$Res>;
+  factory _$$InvalidEventErrorImplCopyWith(_$InvalidEventErrorImpl value,
+          $Res Function(_$InvalidEventErrorImpl) then) =
+      __$$InvalidEventErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_InvalidEventErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res, _$_InvalidEventError>
-    implements _$$_InvalidEventErrorCopyWith<$Res> {
-  __$$_InvalidEventErrorCopyWithImpl(
-      _$_InvalidEventError _value, $Res Function(_$_InvalidEventError) _then)
+class __$$InvalidEventErrorImplCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$InvalidEventErrorImpl>
+    implements _$$InvalidEventErrorImplCopyWith<$Res> {
+  __$$InvalidEventErrorImplCopyWithImpl(_$InvalidEventErrorImpl _value,
+      $Res Function(_$InvalidEventErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -450,7 +450,7 @@ class __$$_InvalidEventErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_InvalidEventError(
+    return _then(_$InvalidEventErrorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -461,8 +461,8 @@ class __$$_InvalidEventErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InvalidEventError implements _InvalidEventError {
-  const _$_InvalidEventError({this.message});
+class _$InvalidEventErrorImpl implements _InvalidEventError {
+  const _$InvalidEventErrorImpl({this.message});
 
   @override
   final String? message;
@@ -473,10 +473,10 @@ class _$_InvalidEventError implements _InvalidEventError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InvalidEventError &&
+            other is _$InvalidEventErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -486,8 +486,8 @@ class _$_InvalidEventError implements _InvalidEventError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InvalidEventErrorCopyWith<_$_InvalidEventError> get copyWith =>
-      __$$_InvalidEventErrorCopyWithImpl<_$_InvalidEventError>(
+  _$$InvalidEventErrorImplCopyWith<_$InvalidEventErrorImpl> get copyWith =>
+      __$$InvalidEventErrorImplCopyWithImpl<_$InvalidEventErrorImpl>(
           this, _$identity);
 
   @override
@@ -570,33 +570,33 @@ class _$_InvalidEventError implements _InvalidEventError {
 
 abstract class _InvalidEventError implements ScanFailure {
   const factory _InvalidEventError({final String? message}) =
-      _$_InvalidEventError;
+      _$InvalidEventErrorImpl;
 
   @override
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_InvalidEventErrorCopyWith<_$_InvalidEventError> get copyWith =>
+  _$$InvalidEventErrorImplCopyWith<_$InvalidEventErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InvalidScanErrorCopyWith<$Res>
+abstract class _$$InvalidScanErrorImplCopyWith<$Res>
     implements $ScanFailureCopyWith<$Res> {
-  factory _$$_InvalidScanErrorCopyWith(
-          _$_InvalidScanError value, $Res Function(_$_InvalidScanError) then) =
-      __$$_InvalidScanErrorCopyWithImpl<$Res>;
+  factory _$$InvalidScanErrorImplCopyWith(_$InvalidScanErrorImpl value,
+          $Res Function(_$InvalidScanErrorImpl) then) =
+      __$$InvalidScanErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_InvalidScanErrorCopyWithImpl<$Res>
-    extends _$ScanFailureCopyWithImpl<$Res, _$_InvalidScanError>
-    implements _$$_InvalidScanErrorCopyWith<$Res> {
-  __$$_InvalidScanErrorCopyWithImpl(
-      _$_InvalidScanError _value, $Res Function(_$_InvalidScanError) _then)
+class __$$InvalidScanErrorImplCopyWithImpl<$Res>
+    extends _$ScanFailureCopyWithImpl<$Res, _$InvalidScanErrorImpl>
+    implements _$$InvalidScanErrorImplCopyWith<$Res> {
+  __$$InvalidScanErrorImplCopyWithImpl(_$InvalidScanErrorImpl _value,
+      $Res Function(_$InvalidScanErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -604,7 +604,7 @@ class __$$_InvalidScanErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_InvalidScanError(
+    return _then(_$InvalidScanErrorImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -615,8 +615,8 @@ class __$$_InvalidScanErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InvalidScanError implements _InvalidScanError {
-  const _$_InvalidScanError({this.message});
+class _$InvalidScanErrorImpl implements _InvalidScanError {
+  const _$InvalidScanErrorImpl({this.message});
 
   @override
   final String? message;
@@ -627,10 +627,10 @@ class _$_InvalidScanError implements _InvalidScanError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InvalidScanError &&
+            other is _$InvalidScanErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -640,8 +640,9 @@ class _$_InvalidScanError implements _InvalidScanError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InvalidScanErrorCopyWith<_$_InvalidScanError> get copyWith =>
-      __$$_InvalidScanErrorCopyWithImpl<_$_InvalidScanError>(this, _$identity);
+  _$$InvalidScanErrorImplCopyWith<_$InvalidScanErrorImpl> get copyWith =>
+      __$$InvalidScanErrorImplCopyWithImpl<_$InvalidScanErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -723,12 +724,12 @@ class _$_InvalidScanError implements _InvalidScanError {
 
 abstract class _InvalidScanError implements ScanFailure {
   const factory _InvalidScanError({final String? message}) =
-      _$_InvalidScanError;
+      _$InvalidScanErrorImpl;
 
   @override
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_InvalidScanErrorCopyWith<_$_InvalidScanError> get copyWith =>
+  _$$InvalidScanErrorImplCopyWith<_$InvalidScanErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

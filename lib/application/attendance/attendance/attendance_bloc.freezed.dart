@@ -69,25 +69,25 @@ class _$AttendanceEventCopyWithImpl<$Res, $Val extends AttendanceEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetAllScansCopyWith<$Res> {
-  factory _$$_GetAllScansCopyWith(
-          _$_GetAllScans value, $Res Function(_$_GetAllScans) then) =
-      __$$_GetAllScansCopyWithImpl<$Res>;
+abstract class _$$GetAllScansImplCopyWith<$Res> {
+  factory _$$GetAllScansImplCopyWith(
+          _$GetAllScansImpl value, $Res Function(_$GetAllScansImpl) then) =
+      __$$GetAllScansImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetAllScansCopyWithImpl<$Res>
-    extends _$AttendanceEventCopyWithImpl<$Res, _$_GetAllScans>
-    implements _$$_GetAllScansCopyWith<$Res> {
-  __$$_GetAllScansCopyWithImpl(
-      _$_GetAllScans _value, $Res Function(_$_GetAllScans) _then)
+class __$$GetAllScansImplCopyWithImpl<$Res>
+    extends _$AttendanceEventCopyWithImpl<$Res, _$GetAllScansImpl>
+    implements _$$GetAllScansImplCopyWith<$Res> {
+  __$$GetAllScansImplCopyWithImpl(
+      _$GetAllScansImpl _value, $Res Function(_$GetAllScansImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetAllScans implements _GetAllScans {
-  const _$_GetAllScans();
+class _$GetAllScansImpl implements _GetAllScans {
+  const _$GetAllScansImpl();
 
   @override
   String toString() {
@@ -95,9 +95,9 @@ class _$_GetAllScans implements _GetAllScans {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetAllScans);
+        (other.runtimeType == runtimeType && other is _$GetAllScansImpl);
   }
 
   @override
@@ -161,7 +161,7 @@ class _$_GetAllScans implements _GetAllScans {
 }
 
 abstract class _GetAllScans implements AttendanceEvent {
-  const factory _GetAllScans() = _$_GetAllScans;
+  const factory _GetAllScans() = _$GetAllScansImpl;
 }
 
 /// @nodoc
@@ -216,11 +216,11 @@ class _$AttendanceStateCopyWithImpl<$Res, $Val extends AttendanceState>
 }
 
 /// @nodoc
-abstract class _$$_AttendanceStateCopyWith<$Res>
+abstract class _$$AttendanceStateImplCopyWith<$Res>
     implements $AttendanceStateCopyWith<$Res> {
-  factory _$$_AttendanceStateCopyWith(
-          _$_AttendanceState value, $Res Function(_$_AttendanceState) then) =
-      __$$_AttendanceStateCopyWithImpl<$Res>;
+  factory _$$AttendanceStateImplCopyWith(_$AttendanceStateImpl value,
+          $Res Function(_$AttendanceStateImpl) then) =
+      __$$AttendanceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -229,11 +229,11 @@ abstract class _$$_AttendanceStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AttendanceStateCopyWithImpl<$Res>
-    extends _$AttendanceStateCopyWithImpl<$Res, _$_AttendanceState>
-    implements _$$_AttendanceStateCopyWith<$Res> {
-  __$$_AttendanceStateCopyWithImpl(
-      _$_AttendanceState _value, $Res Function(_$_AttendanceState) _then)
+class __$$AttendanceStateImplCopyWithImpl<$Res>
+    extends _$AttendanceStateCopyWithImpl<$Res, _$AttendanceStateImpl>
+    implements _$$AttendanceStateImplCopyWith<$Res> {
+  __$$AttendanceStateImplCopyWithImpl(
+      _$AttendanceStateImpl _value, $Res Function(_$AttendanceStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -242,7 +242,7 @@ class __$$_AttendanceStateCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? failureOrScans = null,
   }) {
-    return _then(_$_AttendanceState(
+    return _then(_$AttendanceStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -257,8 +257,8 @@ class __$$_AttendanceStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AttendanceState implements _AttendanceState {
-  const _$_AttendanceState(
+class _$AttendanceStateImpl implements _AttendanceState {
+  const _$AttendanceStateImpl(
       {required this.isLoading, required this.failureOrScans});
 
   @override
@@ -272,10 +272,10 @@ class _$_AttendanceState implements _AttendanceState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AttendanceState &&
+            other is _$AttendanceStateImpl &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.failureOrScans, failureOrScans) ||
@@ -288,15 +288,16 @@ class _$_AttendanceState implements _AttendanceState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AttendanceStateCopyWith<_$_AttendanceState> get copyWith =>
-      __$$_AttendanceStateCopyWithImpl<_$_AttendanceState>(this, _$identity);
+  _$$AttendanceStateImplCopyWith<_$AttendanceStateImpl> get copyWith =>
+      __$$AttendanceStateImplCopyWithImpl<_$AttendanceStateImpl>(
+          this, _$identity);
 }
 
 abstract class _AttendanceState implements AttendanceState {
   const factory _AttendanceState(
       {required final bool isLoading,
       required final Either<AttendanceFailure, List<ScanObject>>
-          failureOrScans}) = _$_AttendanceState;
+          failureOrScans}) = _$AttendanceStateImpl;
 
   @override
   bool get isLoading;
@@ -304,6 +305,6 @@ abstract class _AttendanceState implements AttendanceState {
   Either<AttendanceFailure, List<ScanObject>> get failureOrScans;
   @override
   @JsonKey(ignore: true)
-  _$$_AttendanceStateCopyWith<_$_AttendanceState> get copyWith =>
+  _$$AttendanceStateImplCopyWith<_$AttendanceStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
